@@ -1,0 +1,82 @@
+.data_container{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(58, 58, 58);
+    background-image: url(https://media.cntraveler.com/photos/5eb18e42fc043ed5d9779733/16:9/w_2580,c_limit/BlackForest-Germany-GettyImages-147180370.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding: 40px 0px;
+}
+
+.form_container{
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgb(27, 27, 27);
+
+    padding: 20px;
+    height: auto;
+    width: auto;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+input{
+    margin: 12px 0px;
+    width: 270px;
+    color: white;
+    background-color: rgb(59, 59, 59);
+
+    padding: 8px;
+    border-radius: 8px;
+    border-style: none;
+
+    font-size: 18px;
+    font-family: monospace;
+}
+
+
+label{
+    color: white;
+}
+
+button{
+    margin: 20px;
+    background-color: rgb(46, 46, 255);
+    border-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    transition: 200ms;
+}
+
+button:hover{
+    background-color: rgb(86, 86, 255);
+    transition: 200ms;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    margin: 0px;
+    color: white;
+    font-size: 12px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}

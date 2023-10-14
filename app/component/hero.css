@@ -1,0 +1,26 @@
+.hero{
+    height: auto;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('vid.webm');
+
+    padding: 55px 0px;
+}
+
+.herotext{
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 10vw;
+
+    text-shadow: 10px 10px 3px rgba(0, 0, 0, 0.295);
+    stroke: aqua;
+}

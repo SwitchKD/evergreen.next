@@ -1,0 +1,118 @@
+.data_container{
+    width: auto;
+    padding: 10px;
+    background-color: rgb(22, 22, 22);
+}
+
+p{
+    margin: 0px;
+}
+
+.inner_container{
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: rgb(37, 37, 37);
+    gap: 0px;
+}
+
+.top_seller{
+    font-weight: 600;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.253);
+    color: white;
+    margin: 0px;
+}
+
+.item_frame{
+    width: auto;
+    height: auto;
+    display: flex;
+    word-break: break-all;
+
+    margin: 10px 0px;
+
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.301);
+    border-radius: 10px;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+}
+
+.itemcontainer{
+    width: auto;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    transition: 300ms;
+}
+
+@media (max-width: 700px) {
+    .itemcontainer{
+        width: auto;
+        transition: 300ms;
+    }
+
+    .temp{
+        width: 100%;
+    }
+
+    .item_frame{
+        width: 100%;
+    }
+  }
+
+.img{
+    width: 80px;
+    height: 80px;
+}
+
+.plant_name{
+    margin: 0px 10px;
+    font-weight: 600;
+    word-break: break-all;
+    font-size: 15px;
+}
+
+.plant_details{
+    margin: 0px 10px;
+    font-size: 15px;
+}
+
+.plant_cont{
+    width: auto;
+    display: flex;
+    align-items: center;
+    background-color: rgb(52, 73, 255);
+    border-style: none;
+
+    padding: 10px;
+}
+
+.plant_cont:hover{
+    background-color: rgb(78, 95, 255);
+}
+
+.plant_price{
+    width: 30px;
+    color: white;
+    word-break: keep-all;
+    padding: 10px;
+}
+
+.temp{
+    width: auto;
+}
+
+body{
+    background-color: rgb(27, 27, 27);
+}
