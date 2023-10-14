@@ -9,7 +9,7 @@ export default function page() {
 
     useEffect(() => {
     async function fetchdata() {
-        const response = await axios.get('http://localhost:3000/api/user');
+        const response = await axios.get('http://localhost:3000/api/userAuth');
         setData(response.data);
     }
     fetchdata();}, []);
