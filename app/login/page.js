@@ -25,7 +25,7 @@ export default function page() {
     
       // Assuming data is an array of user objects with 'username' and 'password' properties
       for (let index = 0; index < data.length; index++) {
-        if (username === data[index].username && password === data[index].password) {
+        if (username === data[index].email && password === data[index].password) {
           userFound = true;  // Set the flag to true if a matching user is found
           break;  // Exit the loop when a match is found
         }
@@ -43,7 +43,7 @@ export default function page() {
     <div className='data_container'>
       <div className='form_container'>
         <div className='container'>
-        <label>Username</label>
+        <label>Email</label>
         <input type="text" id="username" name="username" required></input>
         </div>
         <div className='container'>

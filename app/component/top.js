@@ -20,10 +20,12 @@ export default function Alldata() {
       const rand = Math.floor(Math.random() * 2000)
       all.push(
       <div key={index} className='item_frame'>
-        <img src={data[index].url} className='img'></img>
         <div className='temp'>
+        <img src={data[index].url} className='img'></img>
+        <div>
         <p className='plant_name'>{data[index].common_name}</p>
         <p className='plant_details'>{data[index].use}</p>
+        </div>
         </div>
         <button className='plant_cont'>
         <p className='plant_price'>₹{rand}</p>

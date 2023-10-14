@@ -10,7 +10,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('vid.webm');
+    background-image: url('vid.gif');
 
     padding: 55px 0px;
 }
@@ -22,5 +22,4 @@
     font-size: 10vw;
 
     text-shadow: 10px 10px 3px rgba(0, 0, 0, 0.295);
-    stroke: aqua;
 }

@@ -111,6 +111,7 @@ p{
 
 .temp{
     width: auto;
+    display: flex;
 }
 
 body{
