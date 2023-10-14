@@ -1,11 +1,10 @@
-import mongoose from 'mongoose'
-import user from './user'
+import User from './user'
 import { NextResponse } from 'next/server'
+import connectmongodb from '@/app/libs/mongodb'
 
-export async function POST(request)
-{
-    const {user_id, address, email, username, age, pincode, firstname, lastname, rating} = await request.json()
-    await mongoose.connect(process.env.DATABASE_URL)
-    await user.create({user_id, address, email, username, age, pincode, firstname, lastname, rating})
-    return NextResponse.json({message: "topic created"},{status:"200"})
+export async function POST(request){
+    const {user_id, address, password, email, age, pincode, fname, lname, rating} = await request.json()
+    await connectmongodb()
+    await User.create({user_id, address, password, email, age, pincode, fname, lname, rating})
+    return NextResponse.json({message: "data created"},{status:"200"})
 }

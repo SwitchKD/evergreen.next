@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './signup.css';
 import {saveData} from '../component/create';
+const axios = require('axios');
 
 export default function Page() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ export default function Page() {
     age: '',
     address: '',
     pincode: '',
+    rating: 1
   });
 
   const encdata = formData;
