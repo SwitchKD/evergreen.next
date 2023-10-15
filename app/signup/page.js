@@ -39,7 +39,7 @@ export default function Page() {
   const handleSignup = () => {
         updateuserid(formData.user_id+1)
         saveData(encdata)
-        // window.location.reload()
+        window.location.reload()
   };
 
   return (
