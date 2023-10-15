@@ -22,7 +22,7 @@ export default function Alldata() {
       <div key={index} className='item_frame'>
         <div className='temp'>
         <img src={data[index].url} className='img'></img>
-        <div>
+        <div className='tempu'>
         <p className='plant_name'>{data[index].common_name}</p>
         <p className='plant_details'>{data[index].use}</p>
         </div>

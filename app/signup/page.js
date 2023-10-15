@@ -124,10 +124,10 @@ export default function Page() {
               onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
             />
           </div>
-          <button onClick={handleSignup}>Signup</button>
+          <button className='buttonu' onClick={handleSignup}>Signup</button>
           <p>Do not share your password or username with anyone.</p>
           <p>Already a user?</p>
-          <a href='/login'><button>Login</button></a>
+          <a href='/login'><button className='buttonu'>Login</button></a>
         </div>
       </div>
     </>

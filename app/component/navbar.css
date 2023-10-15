@@ -25,16 +25,6 @@
     font-size: 18px;
 }
 
-.sign_link{
-    color: white;
-    text-decoration: none;
-    background-color: rgb(105, 120, 255);
-    margin: 0px 0px;
-
-    border-radius: 5px;
-    padding: 5px;
-}
-
 .navleft{
     width: auto;
     height: auto;
@@ -44,5 +34,86 @@
 .navright{
     width: auto;
     height: auto;
-    padding: 5px;
+    padding: 0px 0px 0px 5px;
+
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+
+    height: auto;
+    width: auto;
+
+    padding: 14px 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.button{
+    padding: 0px 5px;
+    margin: 0px 15px;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    color: white;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.hidden_stuff{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: auto;
+    animation-name: swipe;
+    animation-delay: 0s;
+    animation-duration: .3s;
+    position: relative;
+    left: 2000px;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-wrap: normal;
+    animation-timing-function: linear;
+
+    background-color: rgb(24, 24, 24);
+}
+body{
+    background-color: rgb(24, 24, 24);
+}
+
+@keyframes swipe {
+    0%{
+        left: 200px;
+    }
+    50%{
+        left: 100px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+
+.setting_link{
+    width: 60px;
+    margin: 5px;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-style: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.temp2{
+    background-color: rgb(24, 24, 24);
+    display: flex;
+    flex-direction: row-reverse;
 }

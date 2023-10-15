@@ -1,15 +1,28 @@
 'use client'
 import './navbar.css'
+import { useState } from 'react'
 
 export default function Navbar() {
 
-  var current = localStorage.getItem('username')
+  let current = localStorage.getItem('username')
 
   if (!current) {
     current = "Signup"
   }
 
+  const [setting, setIsContentVisible] = useState(false);
+  const toggleContent = () => {
+    setIsContentVisible(!setting);
+  };
+
+  function logout()
+  {
+    localStorage.setItem('username', "");
+    window.location.reload()
+  }
+
   return (
+    <>
     <div className='navbar'>
         <div className='navleft'>
             <a href='/' className='main_link'>Evergreen</a>
@@ -17,8 +30,18 @@ export default function Navbar() {
         <div className='navright'>
             <a href='/about' className='link'>About</a>
             <a href='/browse' className='link'>Browse</a>
-            <a href='/signup' className='sign_link'>{current}</a>
+            <a  href='/signup' className="dropbtn">{current}</a>
+            <button className='button' onClick={toggleContent}>{setting ? '=' : '+'}</button>
         </div>
     </div>
+    {setting && (
+      <div className='temp'>
+          <div className='hidden_stuff'>
+            <a className='setting_link' href='/profile'>Profile</a>
+            <button onClick={logout} className='setting_link' href='/profile'>Logout</button>
+          </div>
+      </div>
+          )}
+    </>
   )
 }

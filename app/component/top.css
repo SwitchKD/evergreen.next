@@ -41,7 +41,7 @@ p{
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.301);
     border-radius: 10px;
     justify-content: space-between;
-    background-color: white;
+    background-color: rgb(24, 24, 24);
     color: black;
 }
 
@@ -83,18 +83,20 @@ p{
     word-break: break-all;
     font-size: 15px;
     columns: black;
+    color: white;
 }
 
 .plant_details{
     margin: 0px 10px;
     font-size: 15px;
+    color: white;
 }
 
 .plant_cont{
     width: auto;
     display: flex;
     align-items: center;
-    background-color: rgb(52, 73, 255);
+    background-color: #4CAF50;
     border-style: none;
 
     padding: 10px;

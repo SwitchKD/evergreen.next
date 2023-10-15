@@ -54,7 +54,7 @@ export default function page() {
         <label>Password</label>
         <input type="password" id="password" name="password" required></input>
         </div>
-        <button onClick={verifylogin}>Login</button>
+        <button className='buttonu' onClick={verifylogin}>Login</button>
         <p>Do not share your password or username with anyone.</p>
     </div>
     </div>
