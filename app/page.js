@@ -2,6 +2,7 @@
 import Top from './component/top'
 import Hero from './component/hero'
 import './home.css'
+import Info from './component/info'
 
 export default function Home() {
 
@@ -10,6 +11,7 @@ export default function Home() {
     <div>
     <Hero/>
     <Top/>
+    <Info/>
     </div>
     </>
   )

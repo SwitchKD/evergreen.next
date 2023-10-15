@@ -6,11 +6,12 @@
 
 p{
     margin: 0px;
+    color: black;
 }
 
 .inner_container{
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.384);
 
     padding: 10px;
     display: flex;
@@ -81,6 +82,7 @@ p{
     font-weight: 600;
     word-break: break-all;
     font-size: 15px;
+    columns: black;
 }
 
 .plant_details{

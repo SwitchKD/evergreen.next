@@ -9,7 +9,7 @@
     align-items: center;
 
     background-color: rgb(58, 58, 58);
-    background-image: url(https://media.cntraveler.com/photos/5eb18e42fc043ed5d9779733/16:9/w_2580,c_limit/BlackForest-Germany-GettyImages-147180370.jpg);
+    background-image: url(https://cdn.discordapp.com/attachments/1140746966293291028/1163125505223036958/tropical-green-leaves-background.jpg?ex=653e700a&is=652bfb0a&hm=64ac28bd9e01f1ea3a1c1c81f52d39b1965932648e842ed0fdd66e5534662e92&);
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
 
-    background-color: rgb(27, 27, 27);
+    background-color: rgba(27, 27, 27, 0.904);
 
     padding: 20px;
     height: auto;
@@ -29,9 +29,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    filter: blur(0px);
 }
 
 input{
+    z-index: 10;
     margin: 12px 0px;
     width: 270px;
     color: white;
