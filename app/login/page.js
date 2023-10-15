@@ -32,7 +32,11 @@ export default function page() {
       }
     
       if (userFound) {
-        console.log("User found");
+        console.log("User found")
+//loginin logic
+
+      localStorage.setItem('email', username);
+
       } else {
         console.log("User not found");
       }
