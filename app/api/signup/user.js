@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
         age:Number,
         address:String,
         pincode:String,
-        rating:Number,
+        rating:Number
     }
 )
 

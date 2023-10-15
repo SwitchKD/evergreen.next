@@ -1,8 +1,7 @@
-import mongoose from 'mongoose'
 import plants from './plant'
+import connectmongodb from '@/app/libs/mongodb'
 
-const url = process.env.DATABASE_URL
-mongoose.connect(url)
+connectmongodb()
 
 const plant = await plants.find({})
 

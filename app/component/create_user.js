@@ -1,5 +1,7 @@
-const axios = require('axios');
+const axios = require('axios')
+
 export function saveData(data){
+
   axios.post('http://localhost:3000/api/signup', data)
   .then(response => {
     console.log('Request sent successfully:', response.data);

@@ -1,11 +1,16 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './signup.css';
-import {saveData} from '../component/create';
+import { saveData } from '../component/create_user';
+import { updateuserid } from '../component/update_userid';
+
 const axios = require('axios');
 
 export default function Page() {
+
+
   const [formData, setFormData] = useState({
+    user_id: 0,
     email: '',
     password: '',
     fname: '',
@@ -17,13 +22,32 @@ export default function Page() {
   });
 
   const encdata = formData;
+  // console.log(encdata)
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/server')
+      .then(response => {
+        // console.log(response.data);
+        const userCount = response.data[0].userid_count
+        setFormData({ ...formData, user_id: userCount})
+      })
+      .catch(error => {
+        console.error('Error fetching userid_count:', error)
+      });
+  }, []);
+
+  const handleSignup = () => {
+        updateuserid(formData.user_id+1)
+        saveData(encdata)
+        window.location.reload()
+  };
 
   return (
     <>
       <div className='data_container'>
         <div className='form_container'>
           <div className='container'>
-            <label>email</label>
+            <label>Email</label>
             <input
               type="text"
               id="email"
@@ -99,10 +123,10 @@ export default function Page() {
               onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
             />
           </div>
-          <button onClick={() => saveData(encdata)}>Signup</button>
+          <button onClick={handleSignup}>Signup</button>
           <p>Do not share your password or username with anyone.</p>
-          <p>already a user?</p>
-          <a href='/login'><button>Click here</button></a>
+          <p>Already a user?</p>
+          <a href='/login'><button>Login</button></a>
         </div>
       </div>
     </>

@@ -1,11 +1,11 @@
-import User from './user'
+import server from './server'
 import connectmongodb from '@/app/libs/mongodb'
 
 connectmongodb()
 
-const users = await User.find({})
+const server_data = await server.find({})
 
 export async function GET(req){
   // return new Response(plant)
-  return new Response(JSON.stringify(users))
+  return new Response(JSON.stringify(server_data))
 }
