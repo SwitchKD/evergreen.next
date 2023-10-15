@@ -1,6 +1,6 @@
 .data_container{
     width: 100%;
-    height: calc(100vh - 50px);
+    height: 95vh;
 
     display: flex;
     flex-direction: row;
