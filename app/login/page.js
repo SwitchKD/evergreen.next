@@ -26,17 +26,17 @@ export default function page() {
       // Assuming data is an array of user objects with 'username' and 'password' properties
       for (let index = 0; index < data.length; index++) {
         if (username === data[index].email && password === data[index].password) {
+          const uname = data[index].fname
+          localStorage.setItem('username',uname)
+          console.log("success")
           userFound = true;  // Set the flag to true if a matching user is found
+          window.location.reload()
           break;  // Exit the loop when a match is found
         }
       }
     
       if (userFound) {
         console.log("User found")
-//loginin logic
-
-      localStorage.setItem('email', username);
-
       } else {
         console.log("User not found");
       }

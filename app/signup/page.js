@@ -18,7 +18,8 @@ export default function Page() {
     age: '',
     address: '',
     pincode: '',
-    rating: 1
+    rating: 1,
+    role: 'User'
   });
 
   const encdata = formData;
