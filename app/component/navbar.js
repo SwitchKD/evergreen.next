@@ -35,7 +35,7 @@ export default function Navbar() {
         </div>
     </div>
     {setting && (
-      <div className='temp'>
+      <div className='temp2'>
           <div className='hidden_stuff'>
             <a className='setting_link' href='/profile'>Profile</a>
             <button onClick={logout} className='setting_link' href='/profile'>Logout</button>
