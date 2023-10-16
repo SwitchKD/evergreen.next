@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './login.css';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 
 export default function page() {
@@ -28,9 +29,11 @@ export default function page() {
         if (username === data[index].email && password === data[index].password) {
           const uname = data[index].fname
           localStorage.setItem('username',uname)
+          Cookies.set('loggedUser', uname);
+
           console.log("success")
           userFound = true;  // Set the flag to true if a matching user is found
-          window.location.reload()
+          window.location.href = '/'
           break;  // Exit the loop when a match is found
         }
       }
@@ -39,6 +42,7 @@ export default function page() {
         console.log("User found")
       } else {
         console.log("User not found");
+        var error = "failed to signin"
       }
     }
 

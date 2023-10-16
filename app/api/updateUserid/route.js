@@ -1,4 +1,4 @@
-import Server from './server'
+import Server from '../models/server'
 import { NextResponse } from 'next/server'
 import connectmongodb from '@/app/libs/mongodb'
 

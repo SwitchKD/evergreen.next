@@ -1,4 +1,4 @@
-import plants from './plant'
+import plants from '../models/plant'
 import connectmongodb from '@/app/libs/mongodb'
 
 connectmongodb()

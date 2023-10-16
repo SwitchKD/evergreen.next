@@ -1,4 +1,4 @@
-import User from './user'
+import User from '../models/user'
 import connectmongodb from '@/app/libs/mongodb'
 
 connectmongodb()

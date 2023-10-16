@@ -1,6 +1,7 @@
 'use client'
 import './navbar.css'
 import { useState } from 'react'
+import { IoSettingsOutline, IoSettings } from 'react-icons/io5';
 
 export default function Navbar() {
 
@@ -31,7 +32,7 @@ export default function Navbar() {
             <a href='/about' className='link'>About</a>
             <a href='/browse' className='link'>Browse</a>
             <a  href='/signup' className="dropbtn">{current}</a>
-            <button className='button' onClick={toggleContent}>{setting ? '=' : '+'}</button>
+            <button className='button' onClick={toggleContent}>{setting ? <IoSettings/> : <IoSettingsOutline/>}</button>
         </div>
     </div>
     {setting && (

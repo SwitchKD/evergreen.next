@@ -1,4 +1,4 @@
-import server from './server'
+import server from '../models/server'
 import connectmongodb from '@/app/libs/mongodb'
 
 connectmongodb()
