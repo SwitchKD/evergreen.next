@@ -73,14 +73,15 @@
     animation-delay: 0s;
     animation-duration: .3s;
     position: relative;
-    left: 2000px;
     animation-fill-mode: forwards;
     overflow: hidden;
     overflow-x: hidden;
     overflow-wrap: normal;
-    animation-timing-function: linear;
+    animation-timing-function: ease-out;
 
     background-color: rgb(24, 24, 24);
+
+    bottom: 300px
 }
 body{
     background-color: rgb(24, 24, 24);
@@ -88,13 +89,13 @@ body{
 
 @keyframes swipe {
     0%{
-        left: 200px;
+        bottom: 20px;
     }
     50%{
-        left: 100px;
+        bottom: 10px;
     }
     100%{
-        left: 0px;
+        bottom: 0px;
     }
 }
 
