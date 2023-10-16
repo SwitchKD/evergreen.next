@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import './login.css';
 import axios from 'axios';
-import Cookies from 'js-cookie';
-
 
 export default function page() {
     const [data, setData] = useState([]);
@@ -27,9 +25,24 @@ export default function page() {
       // Assuming data is an array of user objects with 'username' and 'password' properties
       for (let index = 0; index < data.length; index++) {
         if (username === data[index].email && password === data[index].password) {
+
           const uname = data[index].fname
+          const lname = data[index].lname
+          const address = data[index].address
+          const age = data[index].age
+          const pincode = data[index].pincode
+          const email = data[index].email
+          const img = data[index].img
+
           localStorage.setItem('username',uname)
-          Cookies.set('loggedUser', uname);
+          localStorage.setItem('lastname',lname)
+          localStorage.setItem('address',address)
+          localStorage.setItem('age',age)
+          localStorage.setItem('pincode',pincode)
+          localStorage.setItem('email',email)
+          localStorage.setItem('img',img)
+
+          // Cookies.set('loggedUser', uname);
 
           console.log("success")
           userFound = true;  // Set the flag to true if a matching user is found

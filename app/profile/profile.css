@@ -1,3 +1,37 @@
 .data_container{
     color: white;
 }
+
+.profile_data{
+    background-color: rgb(51, 51, 51);
+    display: flex;
+    flex-direction: row;
+}
+
+.profile_img{
+    width: 100px;
+    height: 100px;
+
+    background-color: blue;
+}
+
+.user_cont{
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.user_details{
+    color: black;
+
+    padding: 10px 10px;
+}
+
+p{
+    font-size: 15px;
+    margin: 0px;
+    color: white;
+}

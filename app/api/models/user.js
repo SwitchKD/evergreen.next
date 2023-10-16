@@ -11,7 +11,8 @@ const userSchema = new mongoose.Schema(
         address:String,
         pincode:String,
         rating:Number,
-        role:String
+        role:String,
+        img:String
     }
 )
 

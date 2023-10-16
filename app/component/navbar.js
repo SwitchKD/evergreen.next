@@ -18,8 +18,8 @@ export default function Navbar() {
 
   function logout()
   {
-    localStorage.setItem('username', "");
-    window.location.reload()
+    localStorage.setItem('username', "")
+    window.location.href='/'
   }
 
   return (
