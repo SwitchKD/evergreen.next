@@ -8,7 +8,12 @@ export default function page() {
 
     useEffect(() => {
     async function fetchdata() {
-        const response = await axios.get('http://localhost:3000/api/userAuth');
+        const response = await axios.get('http://localhost:3000/api/userAuth',
+        {
+          headers: {
+            'Cache-Control': 'no-store',
+          },
+        });
         setData(response.data);
     }
     fetchdata();}, []);
@@ -33,6 +38,7 @@ export default function page() {
           const pincode = data[index].pincode
           const email = data[index].email
           const img = data[index].img
+          const u_id = data[index]._id
 
           localStorage.setItem('username',uname)
           localStorage.setItem('lastname',lname)
@@ -41,6 +47,7 @@ export default function page() {
           localStorage.setItem('pincode',pincode)
           localStorage.setItem('email',email)
           localStorage.setItem('img',img)
+          localStorage.setItem('uid',u_id)
 
           // Cookies.set('loggedUser', uname);
 

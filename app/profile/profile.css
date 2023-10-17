@@ -1,11 +1,15 @@
 .data_container{
     color: white;
+    display: flex;
+    flex-direction: row;
 }
 
 .profile_data{
     background-color: rgb(51, 51, 51);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 40vw;
+    padding: 10px 0px;
 }
 
 .profile_img{
@@ -31,7 +35,19 @@
 }
 
 p{
-    font-size: 15px;
+    font-size: 3vw;
     margin: 0px;
     color: white;
+}
+
+h1{
+    margin: 0px;
+    color: white;
+    font-size: 4vw;
+}
+
+.tempdiv{
+    width: 100%;
+    background-color: green;
+    height: auto;
 }

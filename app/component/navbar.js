@@ -19,6 +19,13 @@ export default function Navbar() {
   function logout()
   {
     localStorage.setItem('username', "")
+    localStorage.setItem('age', "")
+    localStorage.setItem('uid', "")
+    localStorage.setItem('lastname', "")
+    localStorage.setItem('email', "")
+    localStorage.setItem('pincode', "")
+    localStorage.setItem('address', "")
+    
     window.location.href='/'
   }
 
