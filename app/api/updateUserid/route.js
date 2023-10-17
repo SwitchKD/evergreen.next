@@ -14,6 +14,5 @@ export async function POST(request){
     // Use the updateOne or updateMany method to update the document(s)
     await Server.updateOne({}, updateQuery);
 
-
     return NextResponse.json({message: "data created"},{status:"200"})
 }

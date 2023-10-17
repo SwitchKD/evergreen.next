@@ -18,6 +18,23 @@ export default function Admin() {
     }, []);
 
 
+    const [data, setData] = useState({});
+    const [useridCount, setUseridCount] = useState(0);
+    const [productCount, setProductCount] = useState(0);
+  
+    useEffect(() => {
+      async function fetchData() {
+          const response = await axios.get('http://localhost:3000/api/server');
+          setData(response.data);
+  
+            setUseridCount(response.data[0].userid_count);
+
+            setProductCount(response.data[0].product_count);
+      }
+  
+      fetchData();
+    }, []);
+
   return (
     <>
     <div>
@@ -26,12 +43,12 @@ export default function Admin() {
             <h1 className='dash_title'>Admin Dashboard</h1>
             <div className='temp'>
                 <div className='admin_stats'>
-                    <p>Users</p>
-                    <h1 className='dash_title'>{}</h1>
+                    <p className='header'>Users</p>
+                    <h1 className='dash_title'>{useridCount}</h1>
                 </div>
                 <div className='admin_stats'>
-                    <p>products</p>
-                    <h1 className='dash_title'>{}</h1>
+                    <p className='header'>products</p>
+                    <h1 className='dash_title'>{productCount}</h1>
                 </div>
             </div>
         </div>

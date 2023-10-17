@@ -10,15 +10,16 @@
 
 .admin_stats{
     background-color: black;
-    width: auto;
-    height: auto;
+    width: 100px;
+    height: 100px;
     color: white;
 
     padding: 10px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 }
 
 .temp{
@@ -31,4 +32,8 @@
 .dash_title{
     color: white;
     margin: 20px 0px;
+}
+
+.header{
+    color: #4CAF50;
 }
