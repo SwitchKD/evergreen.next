@@ -10,6 +10,7 @@
 
 .admin_stats{
     background-color: black;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.466);
     width: 100px;
     height: 100px;
     color: white;
@@ -26,7 +27,10 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    justify-content: space-evenly;
+    background-color: #4CAF50;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 10px 6px rgba(0, 0, 0, 0.329);
 }
 
 .dash_title{
