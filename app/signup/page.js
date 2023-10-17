@@ -20,7 +20,9 @@ export default function Page() {
     pincode: '',
     rating: 1,
     role: 'User',
-    img: 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'
+    img: 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
+    order: 0,
+    sold: 0
   });
 
   const encdata = formData;

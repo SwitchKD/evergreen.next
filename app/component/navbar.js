@@ -25,7 +25,10 @@ export default function Navbar() {
     localStorage.setItem('email', "")
     localStorage.setItem('pincode', "")
     localStorage.setItem('address', "")
-    
+    localStorage.setItem('img', "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg")
+    localStorage.setItem('order', "")
+    localStorage.setItem('sold', "")
+
     window.location.href='/'
   }
 

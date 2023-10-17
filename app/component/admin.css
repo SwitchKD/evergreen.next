@@ -1,0 +1,34 @@
+.admin_cont{
+    color: black;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.admin_stats{
+    background-color: black;
+    width: auto;
+    height: auto;
+    color: white;
+
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.temp{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.dash_title{
+    color: white;
+    margin: 20px 0px;
+}

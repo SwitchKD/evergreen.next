@@ -39,6 +39,10 @@ export default function page() {
           const email = data[index].email
           const img = data[index].img
           const u_id = data[index]._id
+          const order = data[index].order
+          const sold = data[index].sold
+          const role = data[index].role
+
 
           localStorage.setItem('username',uname)
           localStorage.setItem('lastname',lname)
@@ -48,6 +52,10 @@ export default function page() {
           localStorage.setItem('email',email)
           localStorage.setItem('img',img)
           localStorage.setItem('uid',u_id)
+          localStorage.setItem('order',order)
+          localStorage.setItem('sold',sold)
+          localStorage.setItem('role',role)
+
 
           // Cookies.set('loggedUser', uname);
 
