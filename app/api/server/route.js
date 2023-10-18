@@ -1,7 +1,8 @@
 import server from '../models/server'
 import connectmongodb from '@/app/libs/mongodb'
 
-connectmongodb()
+const Message = 'from server'
+connectmongodb(Message)
 
 const server_data = await server.find({})
 

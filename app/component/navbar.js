@@ -2,20 +2,31 @@
 import './navbar.css'
 import { useState, useEffect } from 'react'
 import { IoSettingsOutline, IoSettings } from 'react-icons/io5';
+import { saveUid } from './saveuid';
 
 export default function Navbar() {
 
-  var current = localStorage.getItem('username')
-
+  //Handle Login/Signup Logic (UI) 
+  const [current, setCurrent] = useState(localStorage.getItem('username'))
   if (!current) {
-    current = "Signup"
+    setCurrent('Signup')
   }
 
+
+  //Handle Logged in user Data fetch paramaters and Auth
+  // const uidObject = localStorage.getItem('uid')
+  const encrypt = {userid:localStorage.getItem('uid')}
+  saveUid(encrypt)
+
+
+  //Show and hide Navbar Extra
   const [setting, setIsContentVisible] = useState(false);
   const toggleContent = () => {
     setIsContentVisible(!setting);
-  };
+  }
 
+
+  //Clears the cache for logout operation
   function logout()
   {
     localStorage.setItem('username', "")
@@ -32,12 +43,9 @@ export default function Navbar() {
     window.location.href='/'
   }
 
+  //Hide Profile option if user is not logged in
   const [isDivVisible, setIsDivVisible] = useState(false);
-
-  // Fetch the username from local storage
   const storedUsername = localStorage.getItem('username');
-
-  // Use the useEffect hook to set the visibility when the component mounts
   useEffect(() => {
     if (storedUsername) {
       setIsDivVisible(true);
@@ -47,7 +55,7 @@ export default function Navbar() {
   }, [storedUsername]);
 
 
-
+//RENDER////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <>
     <div className='navbar'>

@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import './admin.css';
 
 export default function Admin() {
@@ -61,6 +60,9 @@ export default function Admin() {
             </div>
         ));
     }
+
+
+    
 
     return (
         <div>

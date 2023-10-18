@@ -1,7 +1,8 @@
 import plants from '../models/plant'
 import connectmongodb from '@/app/libs/mongodb'
 
-connectmongodb()
+const Message = 'from Showcase'
+connectmongodb(Message)
 
 const plant = await plants.find({})
 
