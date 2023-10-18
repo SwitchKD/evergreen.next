@@ -1,5 +1,5 @@
 import React from 'react'
-import {user, email, age, address, pincode, lname, img} from './data'
+import {user, email, lname, img} from './data'
 import './profile.css'
 import Stats from '../component/stats';
 import Admin from '../component/admindashboard'
@@ -16,9 +16,6 @@ export default function page() {
         <div className='user_details'>
           <h1>{user} {lname}</h1>
           <p className='user_p'>{email}</p>
-          <p className='user_p'>{age}</p>
-          <p className='user_p'>{address}</p>
-          <p className='user_p'>{pincode}</p>
         </div>
       </div>
 

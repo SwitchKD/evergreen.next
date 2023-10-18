@@ -5,7 +5,7 @@ import { IoSettingsOutline, IoSettings } from 'react-icons/io5';
 
 export default function Navbar() {
 
-  let current = localStorage.getItem('username')
+  var current = localStorage.getItem('username')
 
   if (!current) {
     current = "Signup"
@@ -62,7 +62,7 @@ export default function Navbar() {
         </div>
     </div>
     {setting && (
-      <div className='temp2'>
+      <div className='temp69'>
           <div className='hidden_stuff'>
             {isDivVisible && (
               <div>
