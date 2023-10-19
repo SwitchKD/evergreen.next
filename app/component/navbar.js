@@ -15,7 +15,7 @@ export default function Navbar() {
 
   //Handle Logged in user Data fetch paramaters and Auth
   // const uidObject = localStorage.getItem('uid')
-  const encrypt = {userid:localStorage.getItem('uid')}
+  const encrypt = {user_id:localStorage.getItem('uid')}
   saveUid(encrypt)
 
 
