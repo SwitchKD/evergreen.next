@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './admin.css';
 
-export default function Admin() {
-    const [role, setRole] = useState('User');
+export default function Admin(props) {
+    const [role, setRole] = useState('Admin');
     const [showDiv, setShowDiv] = useState(false);
     const [data, setData] = useState({});
     const [user, setUser] = useState([]);
@@ -14,13 +14,13 @@ export default function Admin() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Retrieve the role from local storage
-        const roles = localStorage.getItem('role');
-
+        // Retrieve the role from props
+        const roles = props.role;
+    
         // Set the role in state and show/hide the div based on the role
         setRole(roles);
         setShowDiv(roles === 'Admin');
-    }, []);
+    }, [props.role]);
 
     useEffect(() => {
         async function fetchData() {

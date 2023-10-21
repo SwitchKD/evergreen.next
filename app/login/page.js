@@ -32,32 +32,10 @@ export default function page() {
         if (username === data[index].email && password === data[index].password) {
 
           const uname = data[index].fname
-          const lname = data[index].lname
-          const address = data[index].address
-          const age = data[index].age
-          const pincode = data[index].pincode
-          const email = data[index].email
-          const img = data[index].img
           const u_id = data[index]._id
-          const order = data[index].order
-          const sold = data[index].sold
-          const role = data[index].role
-
 
           localStorage.setItem('username',uname)
-          localStorage.setItem('lastname',lname)
-          localStorage.setItem('address',address)
-          localStorage.setItem('age',age)
-          localStorage.setItem('pincode',pincode)
-          localStorage.setItem('email',email)
-          localStorage.setItem('img',img)
           localStorage.setItem('uid',u_id)
-          localStorage.setItem('order',order)
-          localStorage.setItem('sold',sold)
-          localStorage.setItem('role',role)
-
-
-          // Cookies.set('loggedUser', uname);
 
           console.log("success")
           userFound = true;  // Set the flag to true if a matching user is found

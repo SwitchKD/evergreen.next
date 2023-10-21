@@ -1,13 +1,15 @@
 'use client'
 import './navbar.css'
 import { useState, useEffect } from 'react'
-import { IoSettingsOutline, IoSettings } from 'react-icons/io5';
-import { saveUid } from './saveuid';
+import { IoSettingsOutline, IoSettings } from 'react-icons/io5'
+import { saveUid } from './saveuid'
+import axios from 'axios'
 
 export default function Navbar() {
 
   //Handle Login/Signup Logic (UI) 
-  const [current, setCurrent] = useState(localStorage.getItem('username'))
+  var CU = localStorage.getItem('username')
+  const [current, setCurrent] = useState(CU)
   if (!current) {
     setCurrent('Signup')
   }
@@ -25,27 +27,36 @@ export default function Navbar() {
     setIsContentVisible(!setting);
   }
 
+  async function fetchData() {
+    try {
+      const response = await axios.get('http://localhost:3000/api/currentUser');
+      // const data = response.data;
+  
+      // Store the data in a variable or state, depending on your application
+      // console.log(data); // Do something with the data
+  
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+  
+  // Call the function to fetch and store the data
+  fetchData();
+
+
 
   //Clears the cache for logout operation
   function logout()
   {
-    localStorage.setItem('username', "")
-    localStorage.setItem('age', "")
-    localStorage.setItem('uid', "")
-    localStorage.setItem('lastname', "")
-    localStorage.setItem('email', "")
-    localStorage.setItem('pincode', "")
-    localStorage.setItem('address', "")
-    localStorage.setItem('img', "")
-    localStorage.setItem('order', "")
-    localStorage.setItem('sold', "")
+    setCurrent('Signup')
     localStorage.clear();
     window.location.href='/'
   }
 
+
   //Hide Profile option if user is not logged in
   const [isDivVisible, setIsDivVisible] = useState(false);
-  const storedUsername = localStorage.getItem('username');
+  const storedUsername = localStorage.getItem('uid');
   useEffect(() => {
     if (storedUsername) {
       setIsDivVisible(true);
