@@ -18,7 +18,7 @@
 .profile_img{
     width: 15vh;
     height: 15vh;
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.342);
 }
 
@@ -29,15 +29,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0px 10px;
+    padding: 0px 10px 0px 0px;
     word-wrap: break-word;
 }
 
 .user_details{
-    padding: 10px 10px;
+    padding: 0px 10px 0px 0px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: left;
     background-color: rgb(24, 24, 24);
     width: 100%;
     border-radius: 10px;
@@ -61,4 +61,18 @@ h1{
 .tempdiv{
     width: 100%;
     height: auto;
+}
+
+.gg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rating_cont{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 0px 30px;
+    width: 100px;
 }

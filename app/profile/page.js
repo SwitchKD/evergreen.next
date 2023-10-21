@@ -18,7 +18,7 @@ export default function page() {
   const [img, setImg] = useState('');
   const [order, setOrder] = useState('');
   const [sold, setSold] = useState('');
-
+  const [rating, setRating] = useState('');
   
   async function fetchData() {
       const response = await axios.get('http://localhost:3000/api/currentUser',
@@ -37,23 +37,39 @@ export default function page() {
       setOrder(data.order)
       setImg(data.img)
       setRole(data.role)
+      setRating(data.rating)
+      console.log(data.rating);
       // console.log(data.role);
   }
   
   // Call the function to fetch and store the data
   fetchData();
 
+  const rati = []
+  function rat()
+  {
+    for (let index = 0; index < rating; index++) {
+      rati.push(<p>⭐</p>)
+    }
+    return rati
+  }
+
   return (
     <>
     <div className='data_container'>
       <div className='profile_data'>
-        <div className='user_cont'>
-          <img src={img} className='profile_img'></img>
-        </div>
-        <div className='user_details'>
-          <h1>{fname} {lname}</h1>
-          <p className='user_p'>{email}</p>
-        </div>
+          <div className='user_details'>
+            <div className='user_cont'>
+              <img src={img} className='profile_img'></img>
+            </div>
+            <div className='gg'>
+              <h1>{fname} {lname}</h1>
+              <p className='user_p'>{email}</p>
+            </div>
+            <div className='rating_cont'>
+              <p>Rating: </p>{rat()}
+            </div>
+          </div>
       </div>
 
       <div className='tempdiv'>
