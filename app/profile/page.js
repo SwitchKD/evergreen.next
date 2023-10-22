@@ -38,7 +38,7 @@ export default function page() {
       setImg(data.img)
       setRole(data.role)
       setRating(data.rating)
-      console.log(data.rating);
+      // console.log(data.rating);
       // console.log(data.role);
   }
   
@@ -49,7 +49,7 @@ export default function page() {
   function rat()
   {
     for (let index = 0; index < rating; index++) {
-      rati.push(<p>⭐</p>)
+      rati.push(<p key={index}>⭐</p>)
     }
     return rati
   }
