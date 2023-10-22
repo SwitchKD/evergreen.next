@@ -1,0 +1,115 @@
+.data_container{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(58, 58, 58);
+    background-image: url(https://cdn.discordapp.com/attachments/1140746966293291028/1163125505223036958/tropical-green-leaves-background.jpg?ex=653e700a&is=652bfb0a&hm=64ac28bd9e01f1ea3a1c1c81f52d39b1965932648e842ed0fdd66e5534662e92&);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding: 40px 0px;
+}
+
+.form_container{
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(27, 27, 27, 0.904);
+
+    padding: 20px;
+    margin: 10px;
+    height: auto;
+    width: auto;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    filter: blur(0px);
+}
+
+input{
+    z-index: 10;
+    margin: 12px 0px;
+    width: 270px;
+    color: white;
+    background-color: rgb(59, 59, 59);
+
+    padding: 8px;
+    border-radius: 8px;
+    border-style: none;
+
+    font-size: 18px;
+    font-family: monospace;
+}
+
+
+label{
+    color: white;
+}
+
+.buttonu{
+    margin: 20px;
+    background-color: rgb(46, 46, 255);
+    border-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    transition: 200ms;
+}
+
+.buttonu:hover{
+    background-color: rgb(86, 86, 255);
+    transition: 200ms;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    margin: 0px;
+    color: white;
+    font-size: 12px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.button{
+    padding: 0px 5px;
+    margin: 0px 15px;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    color: white;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.hidden_stuff{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: auto;
+}
+
+.setting_link{
+    width: 60px;
+    margin: 5px;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-style: none;
+    font-size: 15px;
+    cursor: pointer;
+}

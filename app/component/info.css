@@ -1,0 +1,17 @@
+.container{
+    width: auto;
+    height: auto;
+    background-color: rgb(24, 24, 24);
+    padding: 10px 10px;
+}
+
+h1{
+    color: white;
+    margin: 3px 0px;
+}
+
+.damn{
+    font-size: 16px;
+    color: white;
+    margin: 0px;
+}
