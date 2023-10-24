@@ -11,7 +11,7 @@ export default function Top() {
   {
     for (let index = 0; index < topseller.length; index++) {
       top3.push(
-        <div className='frame'>
+        <div key={index} className='frame'>
           <img className='top_img' src={topseller[index].img}></img>
           <div className='top_info'>
           <p className='top_name'>{topseller[index].name}</p>

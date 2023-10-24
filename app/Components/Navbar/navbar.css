@@ -123,7 +123,7 @@ button{
 
 .option_user{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
 }
 
 @keyframes reveal {
@@ -157,7 +157,7 @@ button{
     animation-timing-function: linear;
     animation-fill-mode: forwards;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
 
     gap: 1px;
