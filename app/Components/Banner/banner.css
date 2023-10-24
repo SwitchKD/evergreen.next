@@ -1,0 +1,97 @@
+.banner{
+    width: auto;
+    height: auto;
+    background-color: #c0dcdd;
+
+    border-radius: 10px 10px;
+    display: flex;
+
+    margin: 40px 0px;
+}
+
+.hero_text{
+    color: black;
+    font-weight: 900;
+
+    font-size: 5vw;
+    margin: 0px 0px;
+}
+
+.sub{
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.devide{
+    margin: 0px 6px;
+    min-width: 3px;
+    min-height: 60px;
+    background-color: black;
+}
+
+.sub_left{
+    width: auto;
+}
+.sub_right{
+    width: auto;
+}
+
+.text{
+    margin: 0px;
+}
+
+.banner_left{
+    padding: 20px;
+    color: black;
+    width: 40%;
+}
+.banner_right{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero_img{
+    position: relative;
+    width: 210px;
+    height: 150px;
+    scale: 2.1;
+    left: 18vw;
+}
+
+@media (max-width: 400px) {
+    .banner{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .hero_text{
+        margin: 0px;
+        font-size: 10vw;
+    }
+
+    .banner_right{
+        left: 0px;
+    }
+    .hero_img{
+        left: 0;
+        scale: 1.5;
+        margin: 20px;
+    }
+    .banner_left{
+        width: auto;
+        margin: 10px;
+    }
+  }
+
+.text_title{
+    font-weight: 600;
+    margin: 0px;
+    font-size: 5vh;
+}
+
+.text{
+    font-size: 3vh;
+}
