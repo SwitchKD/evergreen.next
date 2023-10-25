@@ -64,6 +64,7 @@ export default function page() {
       // console.log(userdata);
       setErrors([])
       Create(userdata)
+      window.location.href = "/";
     } else {
       // Data is not valid, set errors in the state
       setErrors(newErrors);
