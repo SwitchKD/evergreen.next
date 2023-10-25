@@ -40,13 +40,13 @@ export default function page() {
   .then((response) => {
     // Check the response data for the "error email already used" condition
     const getdata = response.data
-    console.log(getdata);
+    // console.log(getdata);
 
     if (getdata === 'USER FOUND') {
       newErrors.push('Email already taken');
-      window.alert('Email already taken. Please choose a different email.')
+      window.alert('Email already taken. Please choose a different email.');
       setErrors(newErrors);
-      return;
+      return; // Exit early to prevent further execution
     }
   });
 
