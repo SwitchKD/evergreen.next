@@ -4,97 +4,89 @@ import { useState } from 'react'
 import { Create } from '../Components/CreateUser/create_user'
 import axios from 'axios'
 
-export default function page() {
+export default function Page() {
+  const [userdata, setUserdata] = useState({
+    email: '',
+    password: '',
+    firstname: '',
+    lastname: '',
+    address: '',
+    zipcode: '',
+    age: '',
+    role: 'User',
+    img_url: 'https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg',
+    rating: 3,
+    order: 0,
+    sold: 0,
+    phone:''
+  });
 
-  const[userdata, setUserdata] = useState(
-    {
-      email:'',
-      password:'',
-      firstname:'',
-      lastname:'',
-      address:'',
-      zipcode:'',
-      age: '',
-      role:'User',
-      img_url:'https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg',
-      rating:3,
-      order:0,
-      sold:0,
-    }
-  )
+  const [error_flag, setErrors] = useState([]);
 
-  const [errors, setErrors] = useState([]);
-
-  function validate() {
+  async function validate() {
     const newErrors = []; // Create a new array to store errors
 
+    const response = await axios.get(`https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`, {
+      // Disable caching
+      headers: {
+        'Cache-Control': 'no-store',
+      }}
+      );
+    // console.log(response);
+    if (response.data) {
+      newErrors.push('Email already exists');
+      setErrors(newErrors);
+      // console.log("HAPPY HAPPY HAPPY");
+    }
+    else{
+      Create(userdata);
+      window.location.href = '/';
+    }
+
     // Check for empty fields and other validation checks
-    if (userdata.firstname === '' || userdata.firstname.length < 2) {
-      newErrors.push('Invalid Firstname')
+    if (userdata.firstname === '' || userdata.firstname.length < 2 || userdata.firstname.length > 20) {
+      newErrors.push('Invalid Firstname');
     }
 
-    if (userdata.lastname === '' || userdata.lastname.length < 4) {
-      newErrors.push('Invalid Lastname')
+    if (userdata.lastname === '' || userdata.lastname.length < 4 || userdata.lastname.length > 20) {
+      newErrors.push('Invalid Lastname');
     }
 
-    if (userdata.lastname === '' || userdata.lastname < 18) {
-      newErrors.push('Invalid Age')
+    if (userdata.age === '' || userdata.age < 18 || userdata.age > 120) {
+      newErrors.push('Invalid Age (above 18)');
+    }
+
+    if (userdata.phone === '' || userdata.phone.length !== 10) {
+      newErrors.push('Invalid Phone Number');
     }
 
     if (userdata.email === '') {
-      newErrors.push('Invalid Email')
+      newErrors.push('Email empty');
     }
 
-    if (userdata.password === '' || userdata.password.length < 8) {
-      newErrors.push('Invalid Password')
+    if (userdata.password === '' || userdata.password.length < 8 || userdata.password.length > 30) {
+      newErrors.push('Password too short (above 8 characters)');
     }
 
     if (userdata.address === '' || userdata.address.length > 100) {
-      newErrors.push('Invalid Address')
+      newErrors.push('Address empty');
     }
 
     if (userdata.zipcode === '' || userdata.zipcode.length !== 6) {
-      newErrors.push('Invalid Zipcode')
+      newErrors.push('Invalid Zipcode');
     }
 
-    // You can add more validation checks here
+    // Set errors in the state
+    setErrors(newErrors);
 
-    if (Error.length === 0) {
-      // If no errors, proceed with registration
-      Create(userdata);
-      window.location.href = "/";
-    } else {
-      // If there are errors, set them in the state
-      setErrors(newErrors);
-    }
-
-    const url = `https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`;
-  axios.get(url,
-    {
-      headers: {
-        'Cache-Control': 'no-cache',
-      },
-    })
-  .then((response) => {
-    // Check the response data for the "error email already used" condition
-    const getdata = response.data
-    // console.log(getdata);
-
-    if (getdata === 'USER FOUND') {
-      newErrors.push('Email already taken');
-      window.alert('Email already taken. Please choose a different email.');
-      setErrors(newErrors);
-    }
-  });
+    // If there are errors, do not proceed with registration
   }
 
-  //RENDER
   return (
-    <>
-        <div className='form_container'>
-          <div className='box_shadow'>
-            <div className='input_right_container'>
-              <div>
+    <div className='form_container'>
+      <div className='box_shadow'>
+        <div className='input_right_container'>
+        <div>
               <p className='input_label'>Email</p>
               <input
               onChange={(e) => setUserdata({ ...userdata, email: e.target.value })}
@@ -130,6 +122,13 @@ export default function page() {
               </div>
 
               <div>
+              <p className='input_label'>Phone</p>
+              <input
+              onChange={(e) => setUserdata({ ...userdata, phone: e.target.value })}
+              type='Number' className='input_fields'></input>
+              </div>
+
+              <div>
               <p className='input_label'>Address</p>
               <input
               onChange={(e) => setUserdata({ ...userdata, address: e.target.value })}
@@ -137,34 +136,38 @@ export default function page() {
               </div>
 
               <div>
-              <p className='input_label'>Pincode</p>
+              <p className='input_label'>Zipcode</p>
               <input
               onChange={(e) => setUserdata({ ...userdata, zipcode: e.target.value })}
               type='number' className='input_fields'></input>
               </div>
-
-              {/* error logging */}
-              <div className='error'>
-              {errors.length > 0 && (
-                <div>
-                  {errors.map((error, index) => (
-                    <p key={index} className='use_errors'>{error}</p>
-                  ))}
-                </div>
-              )}
-              </div>
+          
+          {/* Error logging */}
+          <div className='error'>
+            {error_flag.length > 0 && (
               <div>
-                <p className='warning'>Please do not share your ussername or password with anyone</p>
+                {error_flag.map((error, index) => (
+                  <p key={index} className='use_errors'>{error}</p>
+                )
+                )}
               </div>
-              <div>
-              <button onClick={validate} className='submit_button'>Signup</button>
-              </div>
-              <br/>
-              <p className='warning'>Already a User?</p>
-              <a href='/login' className='submit_button'>Login</a>
-            </div>
+            )}
           </div>
+          <div>
+            <p className='warning'>Please do not share your username or password with anyone</p>
+          </div>
+          <div>
+            <button onClick={validate} className='submit_button'>
+              Signup
+            </button>
+          </div>
+          <br />
+          <p className='warning'>Already a User?</p>
+          <a href='/login' className='submit_button'>
+            Login
+          </a>
         </div>
-    </>
-  )
+      </div>
+    </div>
+  );
 }

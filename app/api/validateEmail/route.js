@@ -14,13 +14,6 @@ export async function GET(req) {
 
     const user = await User.findOne({email:mail});
 
-    var aval
-    if (!user) {
-        aval = 'USER NOT FOUND'
-    }
-    else{
-        aval = "USER FOUND"
-    }
 
-    return new Response(JSON.stringify(aval));
+    return new Response(JSON.stringify(user));
 }

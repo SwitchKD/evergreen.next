@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema(
         role:String,
         img_url:String,
         order:Number,
-        sold:Number
+        sold:Number,
+        phone:Number
     }
 )
 
