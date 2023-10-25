@@ -27,8 +27,7 @@ export default function SignupPage() {
     const newErrors = [];
 
     // Check if email already exists
-    try {
-      const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userdata.email}`, {
+    const response = await axios.get(`https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
@@ -37,10 +36,6 @@ export default function SignupPage() {
       if (response.data) {
         newErrors.push('Email already exists.');
       }
-    } catch (error) {
-      console.error('Error validating email:', error);
-      newErrors.push('Error while validating email.');
-    }
 
     // Check for empty fields and other validation checks
     if (!userdata.firstname.trim() || userdata.firstname.length < 2 || userdata.firstname.length > 20) {
