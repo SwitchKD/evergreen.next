@@ -138,10 +138,14 @@ export default function page() {
                 </div>
               )}
             </div>
-
+              <div>
+                <p className='warning'>Please do not share your ussername or password with anyone</p>
+              </div>
               <div>
               <button onClick={validate} className='submit_button'>Signup</button>
               </div>
+              <p className='warning'>Already a User?</p>
+              <a href='/login' className='submit_button'>login</a>
             </div>
           </div>
         </div>
