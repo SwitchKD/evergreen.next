@@ -2,6 +2,7 @@
 import './signup.css'
 import { useState } from 'react'
 import { Create } from '../Components/CreateUser/create_user'
+import axios from 'axios'
 
 export default function page() {
 
@@ -22,38 +23,57 @@ export default function page() {
     }
   )
 
+
+
   const [errors, setErrors] = useState([]);
 
   function validate() {
     const newErrors = []; // Create a new array to store errors
 
+  const url = `https://plantio.vercel.app//api/validateEmail?email=${userdata.email}`;
+  axios.get(url,
+    {
+      headers: {
+        'Cache-Control': 'no-cache',
+      },
+    })
+  .then((response) => {
+    // Check the response data for the "error email already used" condition
+    const getdata = response.data
+    console.log(getdata);
+
+    if (getdata === 'USER FOUND') {
+      newErrors.push('Email already taken');
+    }
+  });
+
     // Check for empty fields and other validation checks
     if (userdata.firstname === '' || userdata.firstname.length < 2) {
-      newErrors.push('Invalid Firstname');
+      newErrors.push('Invalid Firstname')
     }
 
     if (userdata.lastname === '' || userdata.lastname.length < 4) {
-      newErrors.push('Invalid Lastname');
+      newErrors.push('Invalid Lastname')
     }
 
     if (userdata.lastname === '' || userdata.lastname < 18) {
-      newErrors.push('Invalid Age');
+      newErrors.push('Invalid Age')
     }
 
     if (userdata.email === '') {
-      newErrors.push('Invalid Email');
+      newErrors.push('Invalid Email')
     }
 
     if (userdata.password === '' || userdata.password.length < 8) {
-      newErrors.push('Invalid Password');
+      newErrors.push('Invalid Password')
     }
 
     if (userdata.address === '' || userdata.address.length > 100) {
-      newErrors.push('Invalid Address');
+      newErrors.push('Invalid Address')
     }
 
     if (userdata.zipcode === '' || userdata.zipcode.length !== 6) {
-      newErrors.push('Invalid Zipcode');
+      newErrors.push('Invalid Zipcode')
     }
 
     // You can add more validation checks here
@@ -145,7 +165,7 @@ export default function page() {
               </div>
               <br/>
               <p className='warning'>Already a User?</p>
-              <a href='/login' className='submit_button'>login</a>
+              <a href='/login' className='submit_button'>Login</a>
             </div>
           </div>
         </div>
