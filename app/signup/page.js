@@ -44,6 +44,7 @@ export default function page() {
 
     if (getdata === 'USER FOUND') {
       newErrors.push('Email already taken');
+      window.alert('Email already taken. Please choose a different email.')
     }
   });
 
