@@ -1,5 +1,6 @@
 .top_container{
     width: auto;
+    height: auto;
     display: flex;
     flex-direction: row;
     height: auto;
@@ -35,7 +36,7 @@
 
 .top_head{
     margin: 0px 10px;
-    font-size: 5vh;
+    font-size: 4vw;
     font-weight: 600;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.151);
 }
@@ -46,9 +47,10 @@
 }
 
 .seemore{
+    width: auto;
     margin: 10px 10px;
     background-color: #65d1b1;
-    padding: 12px;
+    padding: 8px;
     border-radius: 10px;
 }
 
@@ -120,5 +122,12 @@
         margin-bottom: 20px;
         display: flex;
         flex-direction: row;
+    }
+    .top_head{
+        font-size: 6vw;
+    }
+
+    .top_desc{
+        font-size: 4vw;
     }
 }

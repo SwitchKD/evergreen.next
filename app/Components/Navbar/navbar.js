@@ -26,7 +26,7 @@ export default function Navbar() {
       </div>
       <div className='navright'>
         <a id='cog' href='' className='align-react-icon'><FiShoppingCart/></a>
-        <button id='cog' href='' className='align-react-icon'><BiSolidUserCircle/></button>
+        {/* <button id='cog' href='' className='align-react-icon'><BiSolidUserCircle/></button> */}
         <div className='gg'>
         <button onClick={toggleOptions} id='cog1' className='align-react-icon'><GiHamburgerMenu/></button>
         </div>
