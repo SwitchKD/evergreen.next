@@ -77,7 +77,6 @@ export default function page() {
     <>
         <div className='form_container'>
           <div className='box_shadow'>
-            <div className='image_left_container'></div>
             <div className='input_right_container'>
               <div>
               <p className='input_label'>Email</p>
@@ -137,13 +136,14 @@ export default function page() {
                   ))}
                 </div>
               )}
-            </div>
+              </div>
               <div>
                 <p className='warning'>Please do not share your ussername or password with anyone</p>
               </div>
               <div>
               <button onClick={validate} className='submit_button'>Signup</button>
               </div>
+              <br/>
               <p className='warning'>Already a User?</p>
               <a href='/login' className='submit_button'>login</a>
             </div>

@@ -3,16 +3,7 @@
     justify-content: center;
     align-items: center;
     width: auto;
-    height: 80vh;
-
-    margin: 50px;
-}
-
-.image_left_container{
-    height: 100%;
-    width: 150px;
-    background-color: #c0dcdd;
-    border-radius: 10px 0px 0px 10px;
+    height: auto;
 }
 
 .input_right_container{
@@ -24,6 +15,7 @@
     flex-direction: column;
     border-radius: 0px 10px 10px 0px;
     background-color: white;
+    padding: 20px 0px;
 }
 
 .input_fields{
@@ -75,6 +67,7 @@
 .warning{
     margin: 0px 30px;
     text-align: center;
+    font-size: 1.3vw;
 }
 
 
@@ -86,5 +79,9 @@
     .input_right_container{
         border-radius: 10px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.096);
+    }
+
+    .warning{
+        font-size: 3vw;
     }
 }
