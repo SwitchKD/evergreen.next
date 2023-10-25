@@ -30,7 +30,7 @@ export default function page() {
   function validate() {
     const newErrors = []; // Create a new array to store errors
 
-  const url = `https://plantio.vercel.app//api/validateEmail?email=${userdata.email}`;
+  const url = `https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`;
   axios.get(url,
     {
       headers: {
