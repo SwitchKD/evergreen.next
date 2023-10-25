@@ -84,7 +84,6 @@ export default function page() {
       newErrors.push('Email already taken');
       setErrors(newErrors);
       window.alert('Email already taken. Please choose a different email.');
-      return; // Exit early to prevent further execution
     }
   });
   }
