@@ -80,16 +80,12 @@ export default function page() {
     // You can add more validation checks here
 
     if (newErrors.length === 0) {
-      // Data is valid, perform form submission logic here
-      // console.log('Data is valid. Submitting...');
-      // console.log(userdata);
-      setErrors([])
-      Create(userdata)
+      // If no errors, proceed with registration
+      Create(userdata);
       window.location.href = "/";
     } else {
-      // Data is not valid, set errors in the state
+      // If there are errors, set them in the state
       setErrors(newErrors);
-      // console.log('Data is not valid');
     }
   }
 
