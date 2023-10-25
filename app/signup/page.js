@@ -1,10 +1,11 @@
 'use client'
 import './signup.css'
-import { useState } from 'react'
-import { Create } from '../Components/CreateUser/create_user'
-import axios from 'axios'
+import React, { useState } from 'react';
+import axios from 'axios';
+import validator from 'validator';
+import {Create} from '../Components/CreateUser/create_user'; // Ensure the correct import path
 
-export default function Page() {
+export default function SignupPage() {
   const [userdata, setUserdata] = useState({
     email: '',
     password: '',
@@ -17,70 +18,74 @@ export default function Page() {
     img_url: 'https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg',
     rating: 3,
     order: 0,
-    sold: 0,
-    phone:''
+    phone: '',
   });
 
-  const [error_flag, setErrors] = useState([]);
+  const [errorFlag, setErrorFlag] = useState([]);
 
-  async function validate() {
-    const newErrors = []; // Create a new array to store errors
+  const validate = async () => {
+    const newErrors = [];
 
-    const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userdata.email}`, {
-      // Disable caching
-      headers: {
-        'Cache-Control': 'no-store',
-      }}
-      );
-    // console.log(response);
-    if (response.data) {
-      newErrors.push('Email already exists');
-      setErrors(newErrors);
-      // console.log("HAPPY HAPPY HAPPY");
-    }
-    else{
-      Create(userdata);
-      window.location.href = '/';
+    // Check if email already exists
+    try {
+      const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userdata.email}`, {
+        headers: {
+          'Cache-Control': 'no-store',
+        }
+      });
+
+      if (response.data) {
+        newErrors.push('Email already exists.');
+      }
+    } catch (error) {
+      console.error('Error validating email:', error);
+      newErrors.push('Error while validating email.');
     }
 
     // Check for empty fields and other validation checks
-    if (userdata.firstname === '' || userdata.firstname.length < 2 || userdata.firstname.length > 20) {
+    if (!userdata.firstname.trim() || userdata.firstname.length < 2 || userdata.firstname.length > 20) {
       newErrors.push('Invalid Firstname');
     }
 
-    if (userdata.lastname === '' || userdata.lastname.length < 4 || userdata.lastname.length > 20) {
+    if (!userdata.lastname.trim() || userdata.lastname.length < 4 || userdata.lastname.length > 20) {
       newErrors.push('Invalid Lastname');
     }
 
-    if (userdata.age === '' || userdata.age < 18 || userdata.age > 120) {
+    if (!userdata.age.trim() || userdata.age < 18 || userdata.age > 120) {
       newErrors.push('Invalid Age (above 18)');
     }
 
-    if (userdata.phone === '' || userdata.phone < 9999999999) {
+    if (!userdata.phone.trim() || userdata.phone.length !== 10) {
       newErrors.push('Invalid Phone Number');
     }
 
-    if (userdata.email === '') {
-      newErrors.push('Email empty');
+    if (!validator.isEmail(userdata.email) || !userdata.email.trim()) {
+      newErrors.push('Invalid Email');
     }
 
-    if (userdata.password === '' || userdata.password.length < 8 || userdata.password.length > 30) {
-      newErrors.push('Password too short (above 8 characters)');
+    if (!userdata.password.trim() || userdata.password.length < 8 || userdata.password.length > 30) {
+      newErrors.push('Password too short (8-30 characters)');
     }
 
-    if (userdata.address === '' || userdata.address.length > 100) {
-      newErrors.push('Address empty');
+    if (!userdata.address.trim() || userdata.address.length > 100) {
+      newErrors.push('Address is empty');
     }
 
-    if (userdata.zipcode === '' || userdata.zipcode.length !== 6) {
+    if (!userdata.zipcode.trim() || userdata.zipcode.length !== 6) {
       newErrors.push('Invalid Zipcode');
     }
 
     // Set errors in the state
-    setErrors(newErrors);
+    setErrorFlag(newErrors);
 
     // If there are errors, do not proceed with registration
-  }
+    if (newErrors.length === 0) {
+      Create(userdata);
+      setTimeout(function() {
+        window.location.href = '/';
+      }, 3000);
+    }
+  };
 
   return (
     <div className='form_container'>
@@ -144,9 +149,9 @@ export default function Page() {
           
           {/* Error logging */}
           <div className='error'>
-            {error_flag.length > 0 && (
+            {errorFlag.length > 0 && (
               <div>
-                {error_flag.map((error, index) => (
+                {errorFlag.map((error, index) => (
                   <p key={index} className='use_errors'>{error}</p>
                 )
                 )}
