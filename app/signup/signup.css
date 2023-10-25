@@ -63,12 +63,13 @@
 
 .use_errors{
     margin: 0px;
+    font-size: 3.5vw;
 }
 
 .warning{
     margin: 0px 30px;
     text-align: center;
-    font-size: 1.3vw;
+    font-size: 3.5vw;;
 }
 
 
