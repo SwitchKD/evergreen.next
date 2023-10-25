@@ -56,7 +56,7 @@ export default function Page() {
       newErrors.push('Invalid Age (above 18)');
     }
 
-    if (userdata.phone === '' || userdata.phone.length !== 10) {
+    if (userdata.phone === '' || userdata.phone < 9999999999) {
       newErrors.push('Invalid Phone Number');
     }
 
