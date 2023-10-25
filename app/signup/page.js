@@ -26,7 +26,7 @@ export default function Page() {
   async function validate() {
     const newErrors = []; // Create a new array to store errors
 
-    const response = axios.get(`https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`, {
+    const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userdata.email}`, {
       // Disable caching
       headers: {
         'Cache-Control': 'no-store',
