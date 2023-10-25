@@ -8,14 +8,14 @@
 
 .input_right_container{
     height: 100%;
-    width: 300px;
+    width: auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     border-radius: 0px 10px 10px 0px;
     background-color: white;
-    padding: 20px 0px;
+    padding: 20px 20px;
 }
 
 .input_fields{
@@ -64,13 +64,13 @@
 
 .use_errors{
     margin: 0px;
-    font-size: 2.2vw;
+    font-size: 1.2vw;
 }
 
 .warning{
     margin: 0px 30px;
     text-align: center;
-    font-size: 3.5vw;;
+    font-size: 1.2vw;;
 }
 
 
@@ -82,14 +82,15 @@
     .input_right_container{
         border-radius: 10px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.096);
+        width: 70vw;
     }
 
     .warning{
-        font-size: 3vw;
+        font-size: 3.2vw;
     }
 
     .use_errors{
         margin: 0px;
-        font-size: 3.5vw;
+        font-size: 3.2vw;
     }
 }
