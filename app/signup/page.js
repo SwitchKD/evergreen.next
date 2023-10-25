@@ -23,32 +23,10 @@ export default function page() {
     }
   )
 
-
-
   const [errors, setErrors] = useState([]);
 
   function validate() {
     const newErrors = []; // Create a new array to store errors
-
-  const url = `https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`;
-  axios.get(url,
-    {
-      headers: {
-        'Cache-Control': 'no-cache',
-      },
-    })
-  .then((response) => {
-    // Check the response data for the "error email already used" condition
-    const getdata = response.data
-    // console.log(getdata);
-
-    if (getdata === 'USER FOUND') {
-      newErrors.push('Email already taken');
-      window.alert('Email already taken. Please choose a different email.');
-      setErrors(newErrors);
-      return; // Exit early to prevent further execution
-    }
-  });
 
     // Check for empty fields and other validation checks
     if (userdata.firstname === '' || userdata.firstname.length < 2) {
@@ -81,7 +59,7 @@ export default function page() {
 
     // You can add more validation checks here
 
-    if (newErrors.length === 0) {
+    if (Error.length === 0) {
       // If no errors, proceed with registration
       Create(userdata);
       window.location.href = "/";
@@ -89,6 +67,26 @@ export default function page() {
       // If there are errors, set them in the state
       setErrors(newErrors);
     }
+
+    const url = `https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`;
+  axios.get(url,
+    {
+      headers: {
+        'Cache-Control': 'no-cache',
+      },
+    })
+  .then((response) => {
+    // Check the response data for the "error email already used" condition
+    const getdata = response.data
+    // console.log(getdata);
+
+    if (getdata === 'USER FOUND') {
+      newErrors.push('Email already taken');
+      setErrors(newErrors);
+      window.alert('Email already taken. Please choose a different email.');
+      return; // Exit early to prevent further execution
+    }
+  });
   }
 
   //RENDER
