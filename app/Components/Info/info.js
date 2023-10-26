@@ -1,26 +1,7 @@
-'use client'
-import {useState} from 'react'
 import './info.css'
-import axios from 'axios'
 import { VscStarFull } from 'react-icons/vsc';
 
-export default function Info() {
-    if (typeof window !== 'undefined') {
-        // Perform localStorage action
-        var id = localStorage.getItem('uid')
-      }
-    const [data, setData] = useState('')
-
-    async function authenticate() {
-        const response = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${id}`, {
-            headers: {
-              'Cache-Control': 'no-store',
-            }
-          });
-          setData(response.data)
-          }
-
-    authenticate()
+export default function Info(props) {
 
     const rats = []
 
@@ -38,13 +19,14 @@ export default function Info() {
     <div className='info_cont'>
         <div className='cont'>
             <div className='img_cont'> 
-            <img className='user_img' src={data.img_url} alt=''></img>
+            <img className='user_img' src={props.img_url} alt=''></img>
             </div>
             <div className='in_cont'>
-            <p className='user_name'>{data.firstname} {data.lastname}</p>
-            <p className='user_name'>{data.email}</p>
-            <p className='user_name'>{data.phone}</p>
-            <div className='user_rating'>{rating(data.rating)}</div>
+              <p className='user_name'>{props.fname} {props.lname}</p>
+              <p className='user_name'>{props.email}</p>
+              <p className='user_name'>{props.phone}</p>
+            
+              <div className='user_rating'>{rating(props.rating)}</div>
             </div>
         </div>
     </div>
