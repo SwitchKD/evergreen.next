@@ -4,7 +4,10 @@ import './info.css'
 import axios from 'axios'
 
 export default function Info() {
-    var id = localStorage.getItem('uid')
+    if (typeof window !== 'undefined') {
+        // Perform localStorage action
+        var id = localStorage.getItem('uid')
+      }
     const [data, setData] = useState('')
 
     async function authenticate() {
