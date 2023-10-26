@@ -18,3 +18,16 @@
 .user_name{
     margin: 0px 20px;
 }
+
+
+
+@media (max-width: 400px) {
+    .cont{
+        flex-direction: column;
+    }
+
+    .info_cont{
+        justify-content: center;
+        align-items: center;
+    }
+}
