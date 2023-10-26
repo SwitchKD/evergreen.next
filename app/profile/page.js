@@ -1,7 +1,12 @@
 import React from 'react'
+import Info from '../Components/Info/info'
 
 export default function page() {
   return (
-    <div>Profile</div>
+    <>
+    <div className='profile_cont'>
+      <Info/>
+    </div>
+    </>
   )
 }
