@@ -1,7 +1,34 @@
-import React from 'react'
+'use client'
+import {useState} from 'react'
 import './login.css'
+import axios from 'axios'
 
 export default function page() {
+
+  const [logindata, setLogindata] = useState(
+    {
+      email:'',
+      password:'',
+    }
+  )
+
+  
+
+  async function authenticate() {
+    const response = await axios.get(`https://plantio.vercel.app/api/Auth?email=${logindata.email}&password=${logindata.password}`, {
+        headers: {
+          'Cache-Control': 'no-store',
+        }
+      });
+
+      if (response.data) {
+        localStorage.setItem('uid', response.data._id)
+        setTimeout(function() {
+          window.location.href = '/'
+        }, 1000);
+      }
+  }
+
   return (
     <>
     <div className='form_container'>
@@ -10,16 +37,18 @@ export default function page() {
               <div>
               <p className='input_label'>Email</p>
               <input
+              onChange={(e) => setLogindata({ ...logindata, email: e.target.value })}
               type='text' className='input_fields'></input>
               </div>
 
               <div>
               <p className='input_label'>Password</p>
               <input
+              onChange={(e) => setLogindata({ ...logindata, password: e.target.value })}
               type='password' className='input_fields'></input>
               </div>
               <div className='button_space'>
-                <button className='submit_button'>Login</button>
+                <button onClick={authenticate} className='submit_button'>Login</button>
               </div>
             </div>
           </div>

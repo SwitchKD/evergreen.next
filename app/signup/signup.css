@@ -4,25 +4,27 @@
     align-items: center;
     width: auto;
     height: auto;
+    padding: 30px 0px;
 }
 
 .input_right_container{
     height: 100%;
-    width: auto;
+    width: 30vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     border-radius: 0px 10px 10px 0px;
     background-color: white;
-    padding: 20px 20px;
+    padding: 30px 0px;
+    gap: 10px;
 }
 
 .input_fields{
     background-color: rgba(255, 255, 255, 0);
     border-style: none;
     border-bottom: 1px solid black;
-    padding: 5px 0px;
+    padding: 0px 0px;
 }
 .input_fields:focus, .input_fields:active {
     outline: none;
@@ -43,12 +45,12 @@
 
 .submit_button{
     background-color: #c0dcdd;
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
     color: black;
     transition: 200ms;
     text-decoration: none;
-    margin: 10px 0px;
+    margin: 0px 0px;
 }
 
 .submit_button:hover{
