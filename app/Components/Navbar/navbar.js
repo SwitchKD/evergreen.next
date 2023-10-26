@@ -2,7 +2,6 @@
 import {useState} from 'react'
 import './navbar.css'
 import {FiShoppingCart} from 'react-icons/fi'
-import {BiSolidUserCircle, BiCog} from 'react-icons/bi'
 import {GiHamburgerMenu} from 'react-icons/gi'
 
 
