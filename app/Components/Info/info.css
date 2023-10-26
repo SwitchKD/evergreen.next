@@ -59,7 +59,7 @@
     .cont{
         padding: 20px;
         flex-direction: column;
-        width: 60vw;
+        width: auto;
     }
 
     .info_cont{
