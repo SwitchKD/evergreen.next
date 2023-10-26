@@ -25,9 +25,4 @@
     .cont{
         flex-direction: column;
     }
-
-    .info_cont{
-        justify-content: center;
-        align-items: center;
-    }
 }
