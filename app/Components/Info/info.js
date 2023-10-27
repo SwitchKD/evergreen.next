@@ -24,7 +24,6 @@ export default function Info(props) {
             <div className='in_cont'>
               <p className='user_name'>{props.fname} {props.lname}</p>
               <p className='user_name'>{props.email}</p>
-              <p className='user_name'>{props.phone}</p>
             
               <div className='user_rating'>{rating(props.rating)}</div>
             </div>
