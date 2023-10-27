@@ -2,7 +2,7 @@ import User from '../models/user';
 import connectmongodb from '@/app/libs/mongodb';
 
 // Connect to the MongoDB database
-connectmongodb("Source:current_user");
+connectmongodb("Source: Auth");
 
 export async function GET(req) {
 
