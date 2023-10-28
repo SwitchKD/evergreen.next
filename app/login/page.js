@@ -58,7 +58,7 @@ export default function page() {
                 {passwordFlag &&
                 (
                   <>
-                  Password or email is invalid
+                  <p className='error'>Password or email is invalid</p>
                   </>
                 )}
               </div>
