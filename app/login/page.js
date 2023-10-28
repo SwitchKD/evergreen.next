@@ -5,6 +5,7 @@ import axios from 'axios'
 
 export default function page() {
 
+  const [passwordFlag, setPasswordflag] = useState(false)
   const [logindata, setLogindata] = useState(
     {
       email:'',
@@ -15,7 +16,7 @@ export default function page() {
   
 
   async function authenticate() {
-    const response = await axios.get(`https://plantio.vercel.app/api/Auth?email=${logindata.email}&password=${logindata.password}`, {
+    const response = await axios.get(`https://plantio.vercel.app/Auth?email=${logindata.email}&password=${logindata.password}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
@@ -25,7 +26,10 @@ export default function page() {
         localStorage.setItem('uid', response.data._id)
         setTimeout(function() {
           window.location.href = '/'
-        }, 1000);
+        }, 200);
+      }
+      else{
+        setPasswordflag(true)
       }
   }
 
@@ -49,6 +53,14 @@ export default function page() {
               </div>
               <div className='button_space'>
                 <button onClick={authenticate} className='submit_button'>Login</button>
+              </div>
+              <div>
+                {passwordFlag &&
+                (
+                  <>
+                  Password or email is invalid
+                  </>
+                )}
               </div>
             </div>
           </div>
