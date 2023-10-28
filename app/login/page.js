@@ -16,7 +16,7 @@ export default function page() {
   
 
   async function authenticate() {
-    const response = await axios.get(`https://plantio.vercel.app/Auth?email=${logindata.email}&password=${logindata.password}`, {
+    const response = await axios.get(`https://plantio.vercel.app/api/Auth?email=${logindata.email}&password=${logindata.password}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
