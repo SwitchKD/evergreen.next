@@ -1,50 +1,84 @@
 'use client'
-import {useState} from 'react'
+import { useState, useEffect } from 'react';
 import './navbar.css'
-import {FiShoppingCart} from 'react-icons/fi'
-import {GiHamburgerMenu} from 'react-icons/gi'
-
-
+import axios from 'axios';
+import { CgMenuGridO } from 'react-icons/cg'
 
 export default function Navbar() {
+  const [showuser, setShowuser] = useState(false)
+  const [user, setUser] = useState('Signup')
+  const [showUserOptions, setShowUserOptions] = useState(false)
 
-  const [showopt, setShowopt] = useState(false)
 
-  const toggleOptions = () => {
-    setShowopt(!showopt);
+  useEffect(() => {
+    async function fetchData() {
+      var uid = null
+      if (typeof window !== 'undefined') {
+        uid = localStorage.getItem('uid')
+        if (uid) {
+          setShowuser(true)
+        }
+      }
+
+      if (uid) {
+        const response = await axios.get(`http://localhost:3000/api/currentUser?uid=${uid}`, {
+          headers: {
+            'Cache-Control': 'max-age=300',
+          },
+        });
+
+        setUser(response.data.firstname)
+      }
+    }
+
+    fetchData(); // Call the fetchData function to initiate the data fetching
+
+  }, []);
+
+  function ShowuserOptions()
+  {
+    setShowUserOptions(!showUserOptions)
   }
 
-  return (
+  function logout(){
+    localStorage.clear();
+
+    setTimeout(function() {
+      window.location.href = '/'
+    }, 100);
+  }
+
+  function profile()
+  {
+    window.location.href = '/profile'
+  }
+
+return (
     <>
     <div className='navbar'>
-    <div className='sub_nav'>
-      <div className='left_cont'>
-      <div className='navleft'>
-        <a href='/' className='logolink'>EVERGREEN</a>
-      </div>
-      </div>
-      <div className='navright'>
-        <a id='cog' href='' className='align-react-icon'><FiShoppingCart/></a>
-        {/* <button id='cog' href='' className='align-react-icon'><BiSolidUserCircle/></button> */}
-        <div className='gg'>
-        <button onClick={toggleOptions} id='cog1' className='align-react-icon'><GiHamburgerMenu/></button>
+      <div className='lr_parent'>
+        <div className='nav_left'>
+          <a className='main_link' href='/'>EVERGREEN</a>
+        </div>
+        <div className='nav_right'>
+          <a className='link' href='/signup'>{user}</a>
+          {showuser &&
+          (<>
+          <button onClick={ShowuserOptions} className='link_but'><CgMenuGridO className='react_icon'/></button>
+          </>)}
         </div>
       </div>
-    </div>
-      <div className='option_user'>
-        {showopt && (
-          <>
-          <div className='hidden'>
-            <div className='sub_hidden'>
-              <a className='link' href='/products'>Product</a>
-              <a className='link' href='/blog'>Blog</a>
-              <a className='link' href='/signup'>Signup</a>
-              <a className='link' href='/profile'>Profile</a>
+      <div>
+          {showUserOptions &&
+          (
+            <>
+            <div className='extra_options'>
+              <button onClick={logout} className='link_but'>Logout</button>
+              <button onClick={profile} className='link_but'>Profile</button>
             </div>
-          </div>
-          </>
-        )}
-      </div>
+            </>
+          )}
+        </div>
     </div>
     </>
   )

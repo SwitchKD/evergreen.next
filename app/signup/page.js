@@ -15,10 +15,9 @@ export default function SignupPage() {
     zipcode: '',
     age: '',
     role: 'User',
-    img_url: 'https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg',
-    rating: 3,
-    order: 0,
     phone: '',
+    rating:3,
+    verified: false,
   });
 
   const [errorFlag, setErrorFlag] = useState([]);
@@ -27,7 +26,7 @@ export default function SignupPage() {
     const newErrors = [];
 
     // Check if email already exists
-    const response = await axios.get(`https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`, {
+    const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userdata.email}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
@@ -78,7 +77,7 @@ export default function SignupPage() {
       Create(userdata);
       setTimeout(function() {
         window.location.href = '/';
-      }, 3000);
+      }, 200);
     }
   };
 

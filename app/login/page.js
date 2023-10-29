@@ -16,7 +16,7 @@ export default function page() {
   
 
   async function authenticate() {
-    const response = await axios.get(`https://plantio.vercel.app/api/Auth?email=${logindata.email}&password=${logindata.password}`, {
+    const response = await axios.get(`http://localhost:3000/api/Auth?email=${logindata.email}&password=${logindata.password}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
@@ -26,7 +26,7 @@ export default function page() {
         localStorage.setItem('uid', response.data._id)
         setTimeout(function() {
           window.location.href = '/'
-        }, 200);
+        }, 100);
       }
       else{
         setPasswordflag(true)
