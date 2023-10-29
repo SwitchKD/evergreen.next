@@ -5,12 +5,12 @@ import jseu from 'js-encoding-utils'
 import mongoose from 'mongoose'
 
 export async function POST(request){
-    var {phone, address, age, email, firstname, img_url, lastname, order, password, rating, role, sold, zipcode, verified} = await request.json()
+    var {phone, address, age, email, firstname, lastname, password, rating, role, zipcode, verified} = await request.json()
 
     password = jseu.encoder.encodeBase64(password);
 
     await connectmongodb('Source: Create User')
-    await User.create({address, age, email, firstname, img_url, lastname, order, password, rating, role, sold, phone, zipcode, verified})
+    await User.create({address, age, email, firstname, lastname, password, rating, role, phone, zipcode, verified})
 
     //Close connection
     mongoose.connection.close

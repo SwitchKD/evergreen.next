@@ -11,7 +11,6 @@ export async function GET(req) {
     const searchParams = new URL(url).searchParams;
     const uid = searchParams.get('uid');
 
-    // console.log(uid);
 
     const user = await User.findById(uid);
 

@@ -11,6 +11,8 @@
 #desc{
     height: 70px;
     width: auto;
+    margin: 0px;
+    padding: 0px;
 }
 
 .post_input{
@@ -18,7 +20,7 @@
     flex-direction: column;
     padding: 0px 0px;
     gap: 10px;
-    width: 100%;
+    width: auto;
 }
 
 .post_title{
@@ -27,9 +29,15 @@
 }
 
 .input_template{
-    width: 100%;
+    width: auto;
     display: flex;
     justify-content: space-between;
+}
+
+input{
+    padding: 0px;
+    margin: 0px;
+    width: 30vw;
 }
 
 .post_button{

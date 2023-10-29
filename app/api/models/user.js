@@ -11,9 +11,6 @@ const userSchema = new mongoose.Schema(
         zipcode: String,
         rating: Number,
         role: String,
-        img_url: String,
-        order: Number,
-        sold: Number,
         phone: Number,
         verified: Boolean,
     }
