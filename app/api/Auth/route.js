@@ -1,6 +1,7 @@
 import User from '../models/user';
 import connectmongodb from '@/app/libs/mongodb';
 import jseu from 'js-encoding-utils'
+import mongoose from 'mongoose';
 
 // Connect to the MongoDB database
 connectmongodb("Source: Auth");
@@ -14,12 +15,10 @@ export async function GET(req) {
 
     const decpassword = jseu.encoder.encodeBase64(passwordA);
 
-    // console.log(decpassword);
-
-
-    // console.log(uid);
-
     const user = await User.findOne({ email: emailA, password: decpassword });
+
+    //Close connection
+    mongoose.connection.close
 
     return new Response(JSON.stringify(user));
 }

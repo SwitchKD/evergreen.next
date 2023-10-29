@@ -6,15 +6,16 @@ const userSchema = new mongoose.Schema(
         password:String,
         firstname:String,
         lastname:String,
-        age:Number,
-        address:String,
-        zipcode:String,
-        rating:Number,
-        role:String,
-        img_url:String,
-        order:Number,
-        sold:Number,
-        phone:Number
+        age: Number,
+        address: String,
+        zipcode: String,
+        rating: Number,
+        role: String,
+        img_url: String,
+        order: Number,
+        sold: Number,
+        phone: Number,
+        verified: Boolean,
     }
 )
 
