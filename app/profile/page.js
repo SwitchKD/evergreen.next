@@ -14,7 +14,7 @@ export default function page() {
 
   // STATE DECLARE
   const [Userdata, setUser] = useState('')
-  const [showpost, setShowpost] = useState(false)
+  const [showpost, setShowpost] = useState(true)
 
   // DATA RETRIVAL FROM API
   useEffect(() => {
@@ -25,21 +25,20 @@ export default function page() {
       }
 
       if (uid) {
-        const response = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${id}`, {
+        const response = await axios.get(`http://localhost:3000/api/currentUser?uid=${id}`, {
           headers: {
-            'Cache-Control': 'max-age=300',
+            'Cache-Control': 'max-age=120',
           },
         });
 
         setUser(response.data)
 
-        if(Userdata.verified === true){
+        if(response.data.verified === true){
           setShowpost(true)
         }
       }
     }
     fetchData(); // Call the fetchData function to initiate the data fetching
-    console.log(Userdata)
   }, []);
 
 
@@ -47,7 +46,7 @@ export default function page() {
     <>
     <div className='main_cont'>
     <div className='profile_cont'>
-      <Info fname={Userdata.firstname} lname={Userdata.lastname} email={Userdata.email} rating={Userdata.rating} phone={Userdata.phone} img_url={Userdata.img_url}/>
+      <Info fname={Userdata.firstname} lname={Userdata.lastname} email={Userdata.email} rating={Userdata.rating} phone={Userdata.phone}/>
     </div>
     <div>
     {showpost &&

@@ -18,10 +18,14 @@ export default function Info(props) {
     <>
     <div className=''>
       <div className='info_cont'>
-        <p className='user_info'>{props.fname} {props.lname}</p>
-        <p className='user_info'>{props.email}</p>
-        <div className='user_rating'>{rating(props.rating)}</div>
-      </div>
+        <div className='info_left'>
+          <div>
+            <p className='user_info'>{props.fname} {props.lname}</p>
+            <p className='user_info'>{props.email}</p>
+          </div>
+            <div className='user_rating'>{rating(props.rating)}</div>
+          </div>
+        </div>
     </div>
     </>
   )
