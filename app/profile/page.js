@@ -25,7 +25,7 @@ export default function page() {
       }
 
       if (uid) {
-        const response = await axios.get(`http://localhost:3000/api/currentUser?uid=${id}`, {
+        const response = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${id}`, {
           headers: {
             'Cache-Control': 'max-age=120',
           },
