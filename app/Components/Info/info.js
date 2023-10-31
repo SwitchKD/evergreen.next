@@ -19,7 +19,7 @@ export default function Info(props) {
     <div className=''>
       <div className='info_cont'>
         <div className='info_left'>
-          <div>
+          <div className='pinfo_cont'>
             <p className='user_info'>{props.fname} {props.lname}</p>
             <p className='user_info'>{props.email}</p>
           </div>

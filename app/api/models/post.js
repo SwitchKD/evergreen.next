@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
             plant_light: String,
             plant_water: String,
             plant_use: String,
-            Plant_image: String,
+            plant_image: String,
         }
 })
 

@@ -6,9 +6,8 @@ import { CgMenuGridO } from 'react-icons/cg'
 
 export default function Navbar() {
   const [showuser, setShowuser] = useState(false)
-  const [user, setUser] = useState('Signup')
   const [showUserOptions, setShowUserOptions] = useState(false)
-
+  const [user, setUser] = useState('')
 
   useEffect(() => {
     async function fetchData() {
@@ -20,13 +19,20 @@ export default function Navbar() {
         }
       }
 
+      var response
       if (uid) {
-        const response = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${uid}`, {
+        response = await axios.get(`http://localhost:3000/api/currentUser?uid=${uid}`, {
           headers: {
             'Cache-Control': 'max-age=300',
           },
         });
 
+      }
+    
+      if (!uid) {
+        setUser("Signup")
+      }
+      else{
         setUser(response.data.firstname)
       }
     }
@@ -34,6 +40,7 @@ export default function Navbar() {
     fetchData(); // Call the fetchData function to initiate the data fetching
 
   }, []);
+  
 
   function ShowuserOptions()
   {
