@@ -3,6 +3,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react';
 import Info from '../Components/Info/info'
 import Post from '../Components/Post/Createpost'
+import Poststats from '../Components/PostStats/poststats'
 import './profile.css'
 
 export default function page() {
@@ -14,26 +15,31 @@ export default function page() {
 
   // STATE DECLARE
   const [Userdata, setUser] = useState('')
-  const [showpost, setShowpost] = useState(true)
+  const [showpost, setShowpost] = useState(false)
+  const [Userposts, setPost] = useState('')
+
 
   // DATA RETRIVAL FROM API
   useEffect(() => {
     async function fetchData() {
-      var uid = null
-      if (typeof window !== 'undefined') {
-        uid = localStorage.getItem('uid')
-      }
 
-      if (uid) {
-        const response = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${id}`, {
+      if (id) {
+        const USERresponse = await axios.get(`http://localhost:3000/api/currentUser?uid=${id}`, {
+          headers: {
+            'Cache-Control': 'no-store',
+          },
+        });
+        setUser(USERresponse.data)
+
+
+        const POSTSresponse = await axios.get(`http://localhost:3000/api/userPost?uid=${id}`, {
           headers: {
             'Cache-Control': 'max-age=120',
           },
         });
+        setPost(POSTSresponse.data)
 
-        setUser(response.data)
-
-        if(response.data.verified === true){
+        if(USERresponse.data.verified === true){
           setShowpost(true)
         }
       }
@@ -45,17 +51,18 @@ export default function page() {
   return (
     <>
     <div className='main_cont'>
-    <div className='profile_cont'>
-      <Info fname={Userdata.firstname} lname={Userdata.lastname} email={Userdata.email} rating={Userdata.rating} phone={Userdata.phone}/>
-    </div>
-    <div>
-    {showpost &&
-    (
-      <>
-      <Post/>
-      </>
-    )}
-    </div>
+      <div className='profile_cont'>
+        <Info fname={Userdata.firstname} lname={Userdata.lastname} email={Userdata.email} rating={Userdata.rating} phone={Userdata.phone}/>
+        <Poststats postCount={Userposts.length}/>
+      </div>
+      <div>
+        {showpost &&
+        (
+          <>
+          <Post/>
+          </>
+        )}
+      </div>
     </div>
     </>
   )

@@ -23,12 +23,12 @@ export default function post() {
     plant_temp_maxC:'',
     plant_water:'',
     plant_use:'',
-    Plant_image:'https://www.shutterstock.com/image-illustration/palm-plants-260nw-273656024.jpg'
+    plant_image:'https://www.shutterstock.com/image-illustration/palm-plants-260nw-273656024.jpg'
     }
   })
 
   function SendData(){
-    axios.post('https://plantio.vercel.app/api/createPost', postdata)
+    axios.post('http://localhost:3000/api/createPost', postdata)
   }
 
   return (

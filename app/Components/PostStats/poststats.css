@@ -1,0 +1,27 @@
+.stat_container{
+    width: auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.post_info_plate{
+    color: black;
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.post_stat_data{
+    margin: 0px;
+}
+
+@media (max-width: 400px) {
+    .post_info_plate{
+        width: auto;
+        height: 70px;
+    }
+}

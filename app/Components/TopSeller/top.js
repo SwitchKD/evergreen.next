@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 import './top.css'
 import {BsArrowRight} from 'react-icons/bs'
 import { topseller } from './topdata'
@@ -23,6 +23,11 @@ export default function Top() {
     return top3
   }
 
+  function product()
+  {
+    window.location.href='/products'
+  }
+
   return (
     <>
     <div className='top_container'>
@@ -31,7 +36,7 @@ export default function Top() {
         <p className='top_desc'>Easiest way to healthy life by buying your favorite plant</p>
         
         <div className='button_cont'>
-          <a className='seemore'>See more <BsArrowRight/></a>
+          <button onClick={product} className='seemore'>See more <BsArrowRight/></button>
         </div>
       </div>
       <div className='top_right'>

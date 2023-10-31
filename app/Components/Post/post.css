@@ -2,17 +2,10 @@
     background-color: white;
     border-radius: 10px;
 
-    padding: 10px 10px;
-    background-color: rgb(24, 24, 24);
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
     width: auto;
     height: auto;
-}
-
-#desc{
-    height: 70px;
-    width: auto;
-    margin: 0px;
-    padding: 0px;
 }
 
 .post_input{
@@ -24,8 +17,9 @@
 }
 
 .post_title{
-    color: #ffffff;
-    margin: 0px;
+    color: black;
+    margin: 20px 0px;
+    border-bottom: 1px solid black;
 }
 
 .input_template{
@@ -60,5 +54,5 @@ input{
 }
 
 label{
-    color: white;
+    color: black;
 }
