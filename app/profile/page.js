@@ -25,7 +25,7 @@ export default function page() {
     async function fetchData() {
 
       if (id) {
-        const USERresponse = await axios.get(`http://localhost:3000/api/currentUser?uid=${id}`, {
+        const USERresponse = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${id}`, {
           headers: {
             'Cache-Control': 'no-store',
           },
