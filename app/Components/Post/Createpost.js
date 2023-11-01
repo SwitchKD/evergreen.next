@@ -30,6 +30,7 @@ export default function post() {
 
   function SendData(){
     axios.post('https://plantio.vercel.app/api/createPost', postdata)
+    window.location.reload()
   }
 
   return (
