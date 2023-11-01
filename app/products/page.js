@@ -16,7 +16,7 @@ export default function Page() {
   useEffect(() => {
     async function fetchData() {
 
-        const POSTresponse = await axios.get(`https://plantio.vercel.app/api/postList`, {
+        const POSTresponse = await axios.get(`http://localhost:3000/api/postList`, {
           headers: {
             'Cache-Control': 'max-age:30',
           },
