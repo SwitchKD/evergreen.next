@@ -9,7 +9,6 @@ export default function userpost(props) {
   const deletePOST = async (event) => {
     postId = event.target.value; // Get the _id value from the button's value attribute
     // setPOSTDeleteId(postId); // Set the POST_delete_id variable with the _id value
-    console.log(`post with _id: ${postId.deleteId}`);
 
     // Perform your delete operation or other logic here
     await axios.post('http://localhost:3000/api/deletePost', {postId})
