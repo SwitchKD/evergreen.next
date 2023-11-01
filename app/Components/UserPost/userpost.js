@@ -7,14 +7,8 @@ export default function userpost(props) {
    var postId = null
 
   const deletePOST = async (event) => {
-    postId = event.target.value; // Get the _id value from the button's value attribute
-<<<<<<< HEAD
-=======
-    // setPOSTDeleteId(postId); // Set the POST_delete_id variable with the _id value
->>>>>>> e4739458048fcad345ba0a0f5e547cd821232ccc
-
-    // Perform your delete operation or other logic here
-    await axios.post('http://localhost:3000/api/deletePost', {postId})
+    postId = event.target.value
+    await axios.post('https://plantio.vercel.app/api/deletePost', {postId})
     window.location.reload()
   };
 
