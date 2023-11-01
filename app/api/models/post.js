@@ -13,6 +13,7 @@ const postSchema = new mongoose.Schema({
             plant_water: String,
             plant_use: String,
             plant_image: String,
+            plant_quantity: Number,
         }
 })
 

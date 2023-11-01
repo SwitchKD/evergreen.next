@@ -23,7 +23,8 @@ export default function post() {
     plant_temp_maxC:'',
     plant_water:'',
     plant_use:'',
-    plant_image:'https://www.shutterstock.com/image-illustration/palm-plants-260nw-273656024.jpg'
+    plant_image:'https://www.shutterstock.com/image-illustration/palm-plants-260nw-273656024.jpg',
+    plant_quantity:1,
     }
   })
 
@@ -104,6 +105,14 @@ export default function post() {
       <label>Plant use </label>
       <input
         onChange={(e) => setPostdata((prevData) => ({ ...prevData, post: { ...prevData.post, plant_use: e.target.value } }))}
+        type="text"
+      />
+      </div>
+
+      <div className='input_template'>
+      <label>Plant Quantity </label>
+      <input
+        onChange={(e) => setPostdata((prevData) => ({ ...prevData, post: { ...prevData.post, plant_quantity: e.target.value } }))}
         type="text"
       />
       </div>
