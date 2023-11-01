@@ -5,6 +5,8 @@
 
 .post_item_container{
     padding: 4px 8px;
+    display: flex;
+    gap: 40px;
 }
 
 .post_container1{
@@ -14,4 +16,8 @@
 
 .post_parent{
     padding: 0px 5px;
+}
+
+.delete_post{
+    color: red;
 }
