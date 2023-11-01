@@ -30,6 +30,7 @@ export default function post() {
 
   function SendData(){
     axios.post('http://localhost:3000/api/createPost', postdata)
+    window.location.reload()
   }
 
   return (
