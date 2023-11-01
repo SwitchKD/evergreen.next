@@ -33,7 +33,7 @@ export default function page() {
         setUser(USERresponse.data)
 
 
-        const POSTSresponse = await axios.get(`http://localhost:3000/api/userPost?uid=${id}`, {
+        const POSTSresponse = await axios.get(`https://plantio.vercel.app/api/userPost?uid=${id}`, {
           headers: {
             'Cache-Control': 'max-age=120',
           },
