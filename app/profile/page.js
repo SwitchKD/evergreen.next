@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Info from '../Components/Info/info'
 import Post from '../Components/Post/Createpost'
 import Poststats from '../Components/PostStats/poststats'
+import UserPost from '../Components/UserPost/userpost'
 import './profile.css'
 
 export default function page() {
@@ -54,6 +55,7 @@ export default function page() {
       <div className='profile_cont'>
         <Info fname={Userdata.firstname} lname={Userdata.lastname} email={Userdata.email} rating={Userdata.rating} phone={Userdata.phone}/>
         <Poststats postCount={Userposts.length}/>
+        <UserPost postdata={Userposts}/>
       </div>
       <div>
         {showpost &&
