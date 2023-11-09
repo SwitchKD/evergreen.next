@@ -7,15 +7,16 @@
     border-radius: 10px;
     margin: 0px 0px;
     gap: 10px;
-    justify-content: space-evenly;
 
-    padding: 10px 5px;
+    padding: 1rem 0rem;
 }
 
 .top_left{
     min-width: 20vw;
     max-width: auto;
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
 }
 
 .top_right{
@@ -51,7 +52,8 @@
     margin: 10px 10px;
     background-color: #65d1b1;
     padding: 8px;
-    border-radius: 10px;
+    border-radius: 5px;
+    border-style: none;
 }
 
 .button_cont{

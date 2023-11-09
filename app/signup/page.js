@@ -26,7 +26,7 @@ export default function SignupPage() {
     const newErrors = [];
 
     // Check if email already exists
-    const response = await axios.get(`https://plantio.vercel.app/api/validateEmail?email=${userdata.email}`, {
+    const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userdata.email}`, {
         headers: {
           'Cache-Control': 'no-store',
         }

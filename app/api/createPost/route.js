@@ -5,6 +5,8 @@ import mongoose from 'mongoose'
 
 export async function POST(request){
     const PostData = await request.json()
+    console.log("CREATE POST");
+    console.log(PostData);
 
     await connectmongodb('Source: Create Post')
     await Post.create(PostData)

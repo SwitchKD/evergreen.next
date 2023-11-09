@@ -21,9 +21,9 @@ export default function Navbar() {
 
       var response
       if (uid) {
-        response = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${uid}`, {
+        response = await axios.get(`http://localhost:3000/api/currentUser?uid=${uid}`, {
           headers: {
-            'Cache-Control': 'max-age=300',
+            'Cache-Control': 'no-store',
           },
         });
 
