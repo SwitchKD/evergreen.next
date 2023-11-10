@@ -1,12 +1,12 @@
 .post_info{
     margin: 0px;
-    color: white;
+    color: black;
     width: 120px;
 }
 
 .post_infi{
     margin: 0px;
-    color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,26 +22,26 @@
     width: 7vw;
 }
 
+.info_cont{
+    display: flex;
+}
+
 .post_container{
     display: flex;
     gap: 30px;
     padding: 20px 20px;
-    border: 1px solid grey;
+    border: 1px solid rgba(128, 128, 128, 0.212);
     border-radius: 10px;
-    background-color: rgb(24, 24, 24);
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-between;
 }
 
 .post_parent{
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
+} 
 
-.properties_cont{
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    display: flex;
-    gap: 40px;
+.function_container{
+    width: auto;
 }

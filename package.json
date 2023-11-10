@@ -18,5 +18,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.18.0"
   }
 }
