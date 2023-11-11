@@ -42,9 +42,9 @@ export default function Page() {
           <p className="post_info">₹{Postdata[index].post.plant_price}</p>
           <button value={Postdata[index].post.plant_price}>Add to Cart</button>
         </div>
-        <Link href={`/products/${Postdata[index]._id}`} key={Postdata[index]._id}>
-            <p>go to page</p>
-        </Link>
+
+        <Link href={`/products/${encodeURIComponent(Postdata[index]._id)}`}>link</Link>
+        
         </div>
       )}
     return post
