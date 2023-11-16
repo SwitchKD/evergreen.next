@@ -60,6 +60,11 @@ export default function Navbar() {
     window.location.href = '/profile'
   }
 
+  function cart()
+  {
+    window.location.href = '/cart'
+  }
+
 return (
     <>
     <div className='navbar'>
@@ -82,6 +87,7 @@ return (
             <div className='extra_options'>
               <button onClick={logout} className='link_but'>Logout</button>
               <button onClick={profile} className='link_but'>Profile</button>
+              <button onClick={cart} className='link_but'>Cart</button>
             </div>
             </>
           )}

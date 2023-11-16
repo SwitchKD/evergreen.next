@@ -24,6 +24,15 @@ export default function Page() {
     fetchData();
   }, []);
 
+  var cart = [];
+
+  function addtocart(e)
+  {
+    cart.push(e.target.value)
+
+    localStorage.setItem('cart_items', cart)
+  }
+
 
   //post array
   const post = []
@@ -40,11 +49,8 @@ export default function Page() {
         </div>
         <div className="function_container">
           <p className="post_info">₹{Postdata[index].post.plant_price}</p>
-          <button value={Postdata[index].post.plant_price}>Add to Cart</button>
+          <button onClick={addtocart} value={Postdata[index]._id}>Add to Cart</button>
         </div>
-
-        <Link href={`/products/${encodeURIComponent(Postdata[index]._id)}`}>link</Link>
-        
         </div>
       )}
     return post
