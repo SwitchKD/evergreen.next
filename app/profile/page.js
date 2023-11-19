@@ -1,71 +1,49 @@
 'use client'
-import axios from 'axios'
-import React, { useState, useEffect } from 'react';
-import Info from '../Components/Info/info'
-import Post from '../Components/Post/Createpost'
-import Poststats from '../Components/PostStats/poststats'
-import UserPost from '../Components/UserPost/userpost'
 import './profile.css'
+import axios from 'axios'
+import Profile from '../Components/Profile/profile_info'
+import Quickaccess from '../Components/QuickAccess/quickaccess'
+import { useState, useEffect } from 'react'
 
-export default function page() {
+export default function Page() {
+  const [Uid, setUid] = useState(null);
+  const [userData, setUserData] = useState('');
 
-  // LOCAL STORAGE DATA RETRIVAL
-  if (typeof window !== 'undefined') {
-    var id = localStorage.getItem('uid')
-  }
-
-  // STATE DECLARE
-  const [Userdata, setUser] = useState('')
-  const [showpost, setShowpost] = useState(false)
-  const [Userposts, setPost] = useState('')
-
-
-  // DATA RETRIVAL FROM API
   useEffect(() => {
-    async function fetchData() {
-
-      if (id) {
-        const USERresponse = await axios.get(`http://localhost:3000/api/currentUser?uid=${id}`, {
-          headers: {
-            'Cache-Control': 'no-store',
-          },
-        });
-        setUser(USERresponse.data)
-
-
-        const POSTSresponse = await axios.get(`http://localhost:3000/api/userPost?uid=${id}`, {
-          headers: {
-            'Cache-Control': 'max-age=120',
-          },
-        });
-        setPost(POSTSresponse.data)
-
-        if(USERresponse.data.verified === true){
-          setShowpost(true)
-        }
-      }
+    if (!localStorage.getItem('uid')) {
+      window.location.href = '/signup'
     }
-    fetchData(); // Call the fetchData function to initiate the data fetching
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      // Perform localStorage action
+      const storedUid = localStorage.getItem('uid');
+
+      // Check if Uid is not null before making the request
+      if (storedUid) {
+        setUid(storedUid);
+
+        try {
+          const response = await axios.get(`http://localhost:3000/api/currentUser?uid=${storedUid}`, {
+            headers: {
+              'Cache-Control': 'no-store',
+            }
+          });
+          setUserData(response.data);
+        } catch (error) {
+          console.error('Error fetching current user:', error);
+        }
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures that the effect runs once when the component mounts
 
   return (
     <>
-    <div className='main_cont'>
-      <div className='profile_cont'>
-        <Info fname={Userdata.firstname} lname={Userdata.lastname} email={Userdata.email} rating={Userdata.rating} phone={Userdata.phone}/>
-        <Poststats postCount={Userposts.length}/>
-        <UserPost postdata={Userposts}/>
-      </div>
-      <div>
-        {showpost &&
-        (
-          <>
-          <Post/>
-          </>
-        )}
-      </div>
-    </div>
+    <Profile firstname={userData.firstname} email={userData.email} lastname={userData.lastname} address={userData.address} role={userData.role} verified={userData.verified} phone={userData.phone} />
+    <Quickaccess/>
     </>
-  )
+  );
 }

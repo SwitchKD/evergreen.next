@@ -1,70 +1,55 @@
 'use client'
-import {useState} from 'react'
 import './login.css'
 import axios from 'axios'
 
 export default function page() {
 
-  const [passwordFlag, setPasswordflag] = useState(false)
-  const [logindata, setLogindata] = useState(
-    {
-      email:'',
-      password:'',
-    }
-  )
+//User Authentication
+var email = null
+var password = null
 
-  
+async function Auth(){
 
-  async function authenticate() {
-    const response = await axios.get(`http://localhost:3000/api/Auth?email=${logindata.email}&password=${logindata.password}`, {
+  const response = await axios.get(`http://localhost:3000/api/Auth?email=${email}&password=${password}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
       });
 
-      if (response.data) {
-        localStorage.setItem('uid', response.data._id)
-        setTimeout(function() {
-          window.location.href = '/'
-        }, 100);
-      }
-      else{
-        setPasswordflag(true)
-      }
+  if (response.data) {
+    localStorage.setItem('uid',response.data._id)
+    localStorage.setItem('username',response.data.firstname)
+    
+    setTimeout(function() {
+      window.location.href = '/';
+    }, 500);
   }
+}
+
 
   return (
     <>
-    <div className='form_container'>
-          <div className='box_shadow'>
-            <div className='input_right_container'>
-              <div>
-              <p className='input_label'>Email</p>
-              <input
-              onChange={(e) => setLogindata({ ...logindata, email: e.target.value })}
-              type='text' className='input_fields'></input>
-              </div>
-
-              <div>
-              <p className='input_label'>Password</p>
-              <input
-              onChange={(e) => setLogindata({ ...logindata, password: e.target.value })}
-              type='password' className='input_fields'></input>
-              </div>
-              <div className='button_space'>
-                <button onClick={authenticate} className='submit_button'>Login</button>
-              </div>
-              <div>
-                {passwordFlag &&
-                (
-                  <>
-                  <p className='error'>Password or email is invalid</p>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
+    <div className="form_container">
+        <h2>Login</h2>
+        <div className="input_container">
+            <label>email</label>
+            <input
+            onChange={(e) => email = e.target.value}
+            className='signup_input' type="text" ></input>
         </div>
-        </>
+
+        <div className="input_container">
+            <label>password</label>
+            <input
+            onChange={(e) => password = e.target.value}
+            className='signup_input' type="password" ></input>
+        </div>
+
+        
+        <div className="submit_container">
+            <a onClick={Auth} className='signup_submit'>login</a>
+        </div>
+    </div>
+    </>
   )
 }

@@ -1,96 +1,85 @@
 'use client'
-import { useState, useEffect } from 'react';
 import './navbar.css'
-import axios from 'axios';
-import { CgMenuGridO } from 'react-icons/cg'
+import Image from 'next/image'
+import { HiOutlineShoppingBag } from "react-icons/hi";
+import { IoMenu } from "react-icons/io5";
+import { LuUser } from "react-icons/lu";
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  const [showuser, setShowuser] = useState(false)
-  const [showUserOptions, setShowUserOptions] = useState(false)
-  const [user, setUser] = useState('')
+    const [currentUser, setcurrentUser] = useState ('')
 
-  useEffect(() => {
-    async function fetchData() {
-      var uid = null
-      if (typeof window !== 'undefined') {
-        uid = localStorage.getItem('uid')
-        if (uid) {
-          setShowuser(true)
-        }
-      }
+    const [showPagesBar, setShowpagesbar] = useState(true)
 
-      var response
-      if (uid) {
-        response = await axios.get(`http://localhost:3000/api/currentUser?uid=${uid}`, {
-          headers: {
-            'Cache-Control': 'no-store',
-          },
-        });
-
-      }
-    
-      if (!uid) {
-        setUser("Signup")
-      }
-      else{
-        setUser(response.data.firstname)
-      }
+    function toggleBar(){
+        setShowpagesbar(!showPagesBar)
     }
 
-    fetchData(); // Call the fetchData function to initiate the data fetching
+    useEffect(() => {
+        // Perform localStorage action
+        setcurrentUser(localStorage.getItem('username'))
+      }, [])
 
-  }, []);
-  
+    function logout(){
+        localStorage.setItem('uid','')
+        localStorage.clear('username')
 
-  function ShowuserOptions()
-  {
-    setShowUserOptions(!showUserOptions)
-  }
+        setTimeout(function() {
+            // Redirect to "/login" after 500 milliseconds
+            window.location.href = '/';
+          }, 500);
+    }
 
-  function logout(){
-    localStorage.clear();
-
-    setTimeout(function() {
-      window.location.href = '/'
-    }, 100);
-  }
-
-  function profile()
-  {
-    window.location.href = '/profile'
-  }
-
-  function cart()
-  {
-    window.location.href = '/cart'
-  }
-
-return (
+  return (
     <>
     <div className='navbar'>
-      <div className='lr_parent'>
-        <div className='nav_left'>
-          <a className='main_link' href='/'>EVERGREEN</a>
-        </div>
-        <div className='nav_right'>
-          <a className='link' href='/signup'>{user}</a>
-          {showuser &&
-          (<>
-          <button onClick={ShowuserOptions} className='link_but'><CgMenuGridO className='react_icon'/></button>
-          </>)}
-        </div>
-      </div>
-      <div>
-          {showUserOptions &&
-          (
-            <>
-            <div className='extra_options'>
-              <button onClick={logout} className='link_but'>Logout</button>
-              <button onClick={profile} className='link_but'>Profile</button>
-              <button onClick={cart} className='link_but'>Cart</button>
+        <div className='navbar_top'>
+            <div className='navbar_left'>
+                <a href='/'>
+                <Image
+                className='logo'
+                    src="/evergreen.svg"
+                    height={60}
+                    width={0}
+                    quality={100}
+                    priority={true}
+                    alt="Picture of the author"
+                />
+                </a>
             </div>
-            </>
-          )}
+
+            <div className='navbar_right'>
+                <div className="dropdown">
+                    <p className="dropbtn"><LuUser className='navbar_icon' /></p>
+                        <div className="dropdown-content">
+                            <a className='page_link' href="/profile">Profile</a>
+                            <a className='page_link' href="/signup">Signup</a>
+                            <a className='page_link' onClick={logout}>Logout</a>
+                        </div>
+                </div>
+                <p>{currentUser}</p>
+                <a href='/'>
+                <HiOutlineShoppingBag className='navbar_icon' />
+                </a>
+                <a onClick={toggleBar}>
+                <IoMenu className='navbar_icon' id='navbar_menu' />
+                </a>
+            </div>
+        </div>
+        <div className='navbar_bottom'>
+            {
+                showPagesBar && (
+                    <>
+                    <div className='page_bar'>
+                        <a href='/' className='page_link'>HOME</a>
+                        <a href='/shop' className='page_link'>SHOP</a>
+                        <a href='/blog' className='page_link'>BLOG</a>
+                        <a href='/about' className='page_link'>ABOUT</a>
+                        <a href='/contact' className='page_link'>CONTACT</a>
+                    </div>
+                    </>
+                )
+            }
         </div>
     </div>
     </>

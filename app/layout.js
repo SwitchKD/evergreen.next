@@ -1,20 +1,21 @@
 import { Inter } from 'next/font/google'
+import './globals.css'
+import Navbar from './Components/Navbar/navbar'
+
 const inter = Inter({ subsets: ['latin'] })
-import Navbar from './Components/Navbar/navbar.js'
-import './global.css'
 
 export const metadata = {
-  title: 'EverGreen',
-  description: 'Made by ryzxxn',
+  title: 'Evergreen',
+  description: 'Buy and Sell plants',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <Navbar/>
-      {children}
-      </body>
+        <Navbar/>
+        {children}
+        </body>
     </html>
   )
 }

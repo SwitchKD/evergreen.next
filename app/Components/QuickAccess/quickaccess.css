@@ -1,0 +1,33 @@
+.quickaccess_container{
+    display: flex;
+    width: auto;
+    overflow: scroll;
+    overflow-y: hidden;
+
+    gap: 20px;
+    padding:  1rem 1.3rem;
+}
+
+.quickaccess_parent{
+    width: 100%;
+    padding:  1rem 0rem;
+}
+#h31{
+    padding:  0rem 1.3rem;
+}
+
+.qa_link{
+    font-size: 1rem;
+    white-space: nowrap;
+    background-color: rgb(210, 228, 233);
+    border-radius: 10px;
+    padding: .3rem .4rem;
+    cursor: pointer;
+    transition: 200ms;
+    color: black;
+}
+
+.qa_link:hover{
+    background-color: rgb(162, 183, 189);
+    transition: 200ms;
+}

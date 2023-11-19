@@ -1,0 +1,26 @@
+.id_container{
+    margin: 0rem 2rem;
+    position: relative;
+}
+
+.design{
+    position: absolute;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 40px;
+}
+
+#blob1{
+    background-color: rgba(80, 229, 255, 0.2);
+    transform: translate(40px, 20px);
+}
+
+#blob2{
+    background-color: rgba(255, 80, 240, 0.2);
+    transform: translate(140px, 100px);
+}
+
+.content{
+    position: absolute;
+    z-index: 2;
+}

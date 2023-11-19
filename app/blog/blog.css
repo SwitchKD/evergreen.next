@@ -1,0 +1,43 @@
+.blog_container{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    height: 75vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+}
+
+.heart_icon{
+    color: red;
+}
+
+.blog_item{
+    padding: 3.7rem .5rem;
+    border: 1px solid rgba(128, 128, 128, 0.151);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.blog_link1{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.blog_link{
+    color: black;
+}
+
+.rating_icon{
+    color: black;
+}
+
+@media only screen and (max-width: 650px) {
+    .blog_item{
+        flex-direction: column;
+    }
+}
