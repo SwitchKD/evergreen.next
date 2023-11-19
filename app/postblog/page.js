@@ -20,8 +20,6 @@ export default function Page() {
     setUid(localStorage.getItem('uid'))
   }, [])
 
-  console.log(Uid);
-
   async function postblog() {
     // Form validation
     if (!postData.blog.blog_title.trim() || !postData.blog.blog_content.trim()) {

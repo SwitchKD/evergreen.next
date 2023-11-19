@@ -38,8 +38,6 @@ const [blogsData, setblogData] = useState('')
         var deleteData = {
             blog_id: blogid
         }
-
-        console.log(blogid);
         axios.post('http://localhost:3000/api/deleteBlog', deleteData)
             .then(response => {
               console.log("Post request successful:", response.data);
