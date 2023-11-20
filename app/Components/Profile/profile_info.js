@@ -22,7 +22,7 @@ useEffect(() => {
 
     const fetchUserList = async () => {
         // Use axios to make a GET request
-        const response_user = await axios.get('http://localhost:3000/api/userList');
+        const response_user = await axios.get('https://plantio.vercel.app/api/userList');
 
         // Update the state with the fetched user list
         setuserList(response_user.data);
@@ -36,7 +36,7 @@ useEffect(() => {
   useEffect(() => {
       const fetchBlogList = async () => {
         // Use axios to make a GET request
-        const response_blog = await axios.get('http://localhost:3000/api/blogList');
+        const response_blog = await axios.get('https://plantio.vercel.app/api/blogList');
 
         // Update the state with the fetched user list
         setblogList(response_blog.data);
