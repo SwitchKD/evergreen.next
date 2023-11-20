@@ -24,3 +24,25 @@
     position: absolute;
     z-index: 2;
 }
+
+.interact_container{
+    display: flex;
+    position: relative;
+    padding: 1.2rem 0rem;
+    align-items: center;
+    gap: 10px;
+}
+
+#like_button{
+    background-color: rgb(255, 52, 52);
+    color: white;
+    font-weight: 600;
+    padding: .4rem 1rem;
+    border-radius: 10px;
+    transition: 100ms;
+}
+
+#like_button:hover{
+    transition: 100ms;
+    background-color: rgb(180, 0, 0);
+}

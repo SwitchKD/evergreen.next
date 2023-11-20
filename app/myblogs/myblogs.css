@@ -5,4 +5,5 @@
 
 .control_container{
     display: flex;
+    padding: .5rem 0rem;
 }

@@ -8,11 +8,13 @@ import { FaHeart } from "react-icons/fa";
 export default function page() {
 
   const [blogsData, setblogData] = useState('')
+  const [userData, setuserData] = useState('')
+
 
   useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('https://plantio.vercel.app/api/blogList', {
+          const response = await axios.get('http://localhost:3000/api/blogList', {
             headers: {
               'Cache-Control': 'no-store',
             },
@@ -40,6 +42,7 @@ export default function page() {
             <Link key={index} href={`/blog/${blogsData[index]._id}`}>
               <div className='blog_item' key={index}>
                 <p className='blog_link1'>{blogsData[index].blog.blog_title}</p>
+                <p className='blog_link1'>{blogsData[index].blogCreator_name}</p>
                 <p className='blog_link'><FaHeart className='heart_icon' /> {blogsData[index].blog.blog_rating}</p>
               </div>
             </Link>

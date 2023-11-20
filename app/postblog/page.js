@@ -2,12 +2,16 @@
 import './postblog.css'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Quickaccess from '../Components/QuickAccess/quickaccess';
 
 export default function Page() {
   const [Uid, setUid] = useState(null);
+  const [Username, setUsername] = useState(null);
+
 
   var postData = {
     blogCreator_id: Uid,
+    blogCreator_name: Username,
     blog: {
       blog_title: '',
       blog_content: '',
@@ -18,6 +22,7 @@ export default function Page() {
   useEffect(() => {
     // Perform localStorage action
     setUid(localStorage.getItem('uid'))
+    setUsername(localStorage.getItem('username'))
   }, [])
 
   async function postblog() {
@@ -30,7 +35,7 @@ export default function Page() {
     // Set blogCreator_id to Uid from localStorage
     postData.blogCreator_id = localStorage.getItem('uid');
 
-    axios.post('https://plantio.vercel.app/api/postBlog', postData)
+    axios.post('http://localhost:3000/api/postBlog', postData)
       .then(response => {
         console.log("Post request successful:", response.data);
       })
@@ -46,6 +51,7 @@ export default function Page() {
 
   return (
     <>
+    <Quickaccess/>
       <div className="form_container">
         <h2>Post your Blog</h2>
         <div className="input_container">

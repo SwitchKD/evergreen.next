@@ -5,103 +5,79 @@ import axios from 'axios'
 
 export default function page() {
 
-const [showError ,setshowError] = useState(false)
+    const [showError, setshowError] = useState(false)
 
-const [userData , setuserData] = useState({
-    email:'',
-    password:'',
-    firstname:'',
-    lastname:'',
-    address:'',
-    verified: false,
-    phone: null,
-    role: 'User'
-})
+    const [userData, setuserData] = useState({
+        email: '',
+        password: '',
+        firstname: '',
+        lastname: '',
+        address: '',
+        verified: false,
+        phone: null,
+        role: 'User'
+    })
 
-//DATA VALIDATION
-async function validate(){
+    async function validate() {
+        const pattern = /@(gmail\.com|outlook\.com|yahoo\.com)$/;
+        const errors = [];
 
-    const response = await axios.get(`https://plantio.vercel.app/api/validateEmail?email=${userData.email}`, {
-        headers: {
-          'Cache-Control': 'no-store',
+        if (!userData.email || userData.email.trim() === '') {
+            errors.push("email");
         }
-      });
 
+        if (!pattern.test(userData.email)) {
+            errors.push("Invalid email pattern");
+        }
 
-    if (!userData.email || userData.email.trim() === '') {
-        setshowError(true);
-        console.log("email");
-    }
+        const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userData.email}`, {
+            headers: {
+                'Cache-Control': 'no-store',
+            }
+        });
 
-    if (response.data) {
-        setshowError(true);
-        console.log("Email already exists");
-        return; // Stop validation if email already exists
-      }
-      else{
-        setshowError(false)
-      }
+        if (response.data) {
+            errors.push("Email already exists");
+        }
 
-    if (!userData.password || userData.password.trim() === '' || userData.password.length < 8 || userData.password.length > 30) {
-        setshowError(true);
-        console.log("password");
-      }
-      else{
-        setshowError(false)
+        if (!userData.password || userData.password.trim() === '' || userData.password.length < 8 || userData.password.length > 30) {
+            errors.push("password");
+        }
+
+        if(userData.firstname.trim() === '' || userData.firstname.trim() === null || userData.firstname.length < 3 || userData.firstname.length > 30){
+          errors.push("firstname");
       }
 
-    if(userData.firstname.trim() === '' || userData.firstname.trim() === null || userData.firstname.length < 3 || userData.firstname.length > 30){
-        setshowError(true)
-        console.log("firstname")
-    }
-    else{
-        setshowError(false)
+        if(userData.lastname.trim() === '' || userData.lastname.trim() === null || userData.lastname.length < 3 || userData.lastname.length > 30){
+          errors.push("lastname");
       }
 
-    if(userData.lastname.trim() === '' || userData.lastname.trim() === null || userData.lastname.length < 3 || userData.lastname.length > 30){
-        setshowError(true)
-        console.log("lastname")
-    }
-    else{
-        setshowError(false)
+        if(userData.address.trim() === '' || userData.address.trim() === null || userData.address.length < 7 || userData.address.length > 100){
+          errors.push("address");
       }
 
-    if(userData.address.trim() === '' || userData.address.trim() === null || userData.address.length < 7 || userData.address.length > 100){
-        setshowError(true)
-        console.log("address");
-    }
-    else{
-        setshowError(false)
+      if (userData.phone === null || String(userData.phone).length !== 10) {
+          errors.push("phone");
       }
 
-    if (userData.phone === null || String(userData.phone).length !== 10) {
-        setshowError(true);
-        console.log("phone");
-      }
-      else{
-        setshowError(false)
-      }
+        // Add similar checks for other fields
 
-      setTimeout(function () {
-        if (!showError) {
-          console.log("User Created");
-    
-          axios.post('https://plantio.vercel.app/api/postUser', userData)
-            .then(response => {
-              console.log("Post request successful:", response.data);
-            })
-            .catch(error => {
-              console.error("Error posting user:", error);
-            })
-            .finally(() => {
-              setTimeout(function () {
+        if (errors.length > 0) {
+            setshowError(true);
+            console.log(errors);
+            return;
+        }
+
+        try {
+            const postResponse = await axios.post('http://localhost:3000/api/postUser', userData);
+            console.log("Post request successful:", postResponse.data);
+            setTimeout(() => {
                 window.location.href = '/login';
-              }, 500);
-            });
+            }, 1000);
+        } catch (error) {
+            console.error("Error posting user:", error);
         }
-      }, 500);
     }
-
 
   return (
     <>

@@ -2,6 +2,7 @@
 import { useState, useEffect, Suspense } from "react";
 import axios from "axios";
 import './myblogs.css'
+import Quickaccess from '../Components/QuickAccess/quickaccess';
 
 export default function page() {
 
@@ -11,7 +12,7 @@ const [blogsData, setblogData] = useState('')
       const fetchData = async () => {
         var uid = localStorage.getItem('uid')
         try {
-            const response = await axios.get(`https://plantio.vercel.app/api/blogByID?bcid=${uid}`, {
+            const response = await axios.get(`http://localhost:3000/api/blogByID?bcid=${uid}`, {
                 headers: {
                   'Cache-Control': 'no-store',
                 }
@@ -61,7 +62,7 @@ const [blogsData, setblogData] = useState('')
                 <p className='blog_link'>Likes {blogsData[index].blog.blog_rating}</p>
                 </div>
                 <div className="control_container">
-                    <button onClick={deleteblog} value={blogsData[index]._id}>delete</button>
+                    <button onClick={deleteblog} value={blogsData[index]._id}>Delete</button>
                 </div>
               </div>
           )
@@ -70,6 +71,7 @@ const [blogsData, setblogData] = useState('')
     }
   return (
     <>
+    <Quickaccess/>
     <div className='blog_container'>
     <Suspense>
     {printBlogs()}

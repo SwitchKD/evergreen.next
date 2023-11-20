@@ -25,7 +25,7 @@ export default function Page() {
         setUid(storedUid);
 
         try {
-          const response = await axios.get(`https://plantio.vercel.app/api/currentUser?uid=${storedUid}`, {
+          const response = await axios.get(`http://localhost:3000/api/currentUser?uid=${storedUid}`, {
             headers: {
               'Cache-Control': 'no-store',
             }

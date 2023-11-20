@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 
 const blogSchema = new mongoose.Schema({
         blogCreator_id: String,
+        blogCreator_name: String,
         blog:{
             blog_title: String,
             blog_content: String,

@@ -6,7 +6,6 @@
     height: 75vh;
     overflow: scroll;
     overflow-x: hidden;
-    justify-content: center;
 }
 
 .heart_icon{
@@ -14,7 +13,7 @@
 }
 
 .blog_item{
-    padding: 3.7rem .5rem;
+    padding: 2rem .5rem;
     border: 1px solid rgba(128, 128, 128, 0.151);
     display: flex;
     flex-direction: column;

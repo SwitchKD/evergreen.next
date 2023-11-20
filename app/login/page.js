@@ -10,7 +10,7 @@ var password = null
 
 async function Auth(){
 
-  const response = await axios.get(`https://plantio.vercel.app/api/Auth?email=${email}&password=${password}`, {
+  const response = await axios.get(`http://localhost:3000/api/Auth?email=${email}&password=${password}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
