@@ -12,7 +12,7 @@ export default function page() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/blogID?id="+id, {
+        const response = await axios.get("https://plantio.vercel.app/api/blogID?id="+id, {
           headers: {
             'Cache-Control': 'max-age=3600',
           },
