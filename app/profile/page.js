@@ -42,8 +42,8 @@ export default function Page() {
 
   return (
     <>
-    <Profile firstname={userData.firstname} email={userData.email} lastname={userData.lastname} address={userData.address} role={userData.role} verified={userData.verified} phone={userData.phone} />
     <Quickaccess/>
+    <Profile firstname={userData.firstname} email={userData.email} lastname={userData.lastname} address={userData.address} role={userData.role} verified={userData.verified} phone={userData.phone} />
     </>
   );
 }
