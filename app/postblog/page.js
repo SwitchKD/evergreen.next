@@ -30,7 +30,7 @@ export default function Page() {
     // Set blogCreator_id to Uid from localStorage
     postData.blogCreator_id = localStorage.getItem('uid');
 
-    axios.post('http://localhost:3000/api/postBlog', postData)
+    axios.post('https://plantio.vercel.app/api/postBlog', postData)
       .then(response => {
         console.log("Post request successful:", response.data);
       })
