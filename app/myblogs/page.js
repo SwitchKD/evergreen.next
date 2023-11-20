@@ -11,7 +11,7 @@ const [blogsData, setblogData] = useState('')
       const fetchData = async () => {
         var uid = localStorage.getItem('uid')
         try {
-            const response = await axios.get(`http://localhost:3000/api/blogByID?bcid=${uid}`, {
+            const response = await axios.get(`https://plantio.vercel.app/api/blogByID?bcid=${uid}`, {
                 headers: {
                   'Cache-Control': 'no-store',
                 }
