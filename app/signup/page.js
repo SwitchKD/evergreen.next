@@ -86,7 +86,7 @@ async function validate(){
         if (!showError) {
           console.log("User Created");
     
-          axios.post('http://localhost:3000/api/postUser', userData)
+          axios.post('https://plantio.vercel.app/api/postUser', userData)
             .then(response => {
               console.log("Post request successful:", response.data);
             })
