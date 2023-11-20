@@ -21,7 +21,7 @@ const [userData , setuserData] = useState({
 //DATA VALIDATION
 async function validate(){
 
-    const response = await axios.get(`http://localhost:3000/api/validateEmail?email=${userData.email}`, {
+    const response = await axios.get(`https://plantio.vercel.app/api/validateEmail?email=${userData.email}`, {
         headers: {
           'Cache-Control': 'no-store',
         }
